@@ -1,0 +1,58 @@
+html,body{
+    background-image: url('../images/scalesOfJustice.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+.container{
+    height: 100%;
+    align-content: center;
+}
+
+.card{
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.card-header{
+    color: white;
+}
+
+input:focus{
+    outline: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+}
+
+.btn-primary{
+    color: black;
+    background-color: #FFC312;
+}
+
+.btn-primary:hover{
+    color: black;
+    background-color: white;
+}
+
+label{
+    color: white;
+}
+
+.btn-link{
+    color: white;
+    text-decoration: none;
+}
+
+.btn-link a:hover{
+    opacity: 0.7;
+    text-decoration: none;
+    color: white;
+}
+
+.verification{
+    color: white;
+}
+
+
