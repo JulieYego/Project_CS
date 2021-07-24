@@ -20,3 +20,4 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/officers/landing_offpage',[MainController::class, 'landing_page'])->name('landing_offpage');
