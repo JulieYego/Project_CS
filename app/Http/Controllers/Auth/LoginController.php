@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -26,9 +28,24 @@ class LoginController extends Controller
      *
      * @var string
      */
-    //protected $redirectTo = RouteServiceProvider::HOME;
 
-    protected $redirectTo = 'landing_offpage.blade.php';
+    protected function authenticated(Request $request, $user)
+    {
+        // to officer dashboard
+        if($user->isOfficer()) {
+            return redirect(
+                route('officer_landing_page')
+            );
+        }
+
+        // to ocs dashboard
+        else if(auth()->user()->isOcs()) {
+            return redirect(route('ocs_landing_page'));
+        }
+    }
+    
+    //protected $redirectTo = RouteServiceProvider::HOME;
+    
     /**
      * Create a new controller instance.
      *
@@ -38,4 +55,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
 }
+

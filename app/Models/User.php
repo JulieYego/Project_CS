@@ -22,7 +22,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'gender',
         'o_number',
-        'last_name'
+        'last_name',
+        'role_id',
     ];
 
     /**
@@ -43,4 +44,19 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles(){
+        return $this->belongsToMany('App\Model\Role');
+    }
+
+    public function isOfficer(){
+        return $this->role_id == '1';
+        
+        //return $this->roles()->where('role_id',$role)->first();
+        //return null !== $this->roles()->where('name',$role)->first();
+    }
+
+    public function isOcs() {
+        return $this->role_id == '2';
+    }
 }

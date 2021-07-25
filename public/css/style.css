@@ -45,6 +45,11 @@ label{
     text-decoration: none;
 }
 
+.btn-link-verify{
+    color: white;
+    text-decoration: none;
+}
+
 .btn-link a:hover{
     opacity: 0.7;
     text-decoration: none;

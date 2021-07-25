@@ -20,4 +20,16 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/officers/landing_offpage',[MainController::class, 'landing_page'])->name('landing_offpage');
+Route::get('/test', [App\Http\Controllers\HomeController::class, 'index'])->name('test');
+//Route::get('/officer_landing_page', [App\Http\Controllers\Officer\LandingController::class, 'index'])->name('officer_landing_page');
+
+// officer protected routes
+Route::group(['middleware' => ['auth', 'officer'], 'prefix' => 'officer'], function () {
+    Route::get('/officer_landing_page', [App\Http\Controllers\Officer\LandingController::class, 'index'])->name('officer_landing_page');
+});
+
+// ocs protected routes
+Route::group(['middleware' => ['auth', 'ocs'], 'prefix' => 'ocs'], function () {
+    Route::get('/ocs_landing_page', [App\Http\Controllers\Ocs\LandingController::class, 'index'])->name('ocs_landing_page');
+});
+

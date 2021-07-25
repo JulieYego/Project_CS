@@ -56,6 +56,7 @@ class RegisterController extends Controller
             'gender'=>['required','string'],
             'o_number' => ['required','string','unique:users'],
             'last_name' => ['required', 'string', 'max:255'],
+            'role_id' => ['required','int'],
         ]);
     }
 
@@ -74,6 +75,7 @@ class RegisterController extends Controller
             'gender'=>$data['gender'],
             'o_number'=>$data['o_number'],
             'last_name'=>$data['last_name'],
+            'role_id' =>$data['role_id'],
         ]);
     }
 }
