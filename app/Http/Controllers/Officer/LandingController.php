@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Officer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\DB;
 
 class LandingController extends Controller
 {
@@ -17,8 +18,6 @@ class LandingController extends Controller
         return View::make('officers\officer_landing_page');
 
     }
-
-
 
     
 }

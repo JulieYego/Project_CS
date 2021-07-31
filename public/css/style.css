@@ -60,4 +60,15 @@ label{
     color: white;
 }
 
+.wrapper {
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center; }
 
+    .form-wrapper {
+        margin-bottom: 17px; }
+        .form-wrapper label {
+          margin-bottom: 9px;
+          display: block; }

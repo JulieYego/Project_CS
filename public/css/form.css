@@ -1,0 +1,270 @@
+@font-face {
+    font-family: "Muli-Regular";
+    src: url("../fonts/muli/Muli-Regular.ttf"); }
+  @font-face {
+    font-family: "Muli-SemiBold";
+    src: url("../fonts/muli/Muli-SemiBold.ttf"); }
+  @font-face {
+    font-family: "Muli-Bold";
+    src: url("../fonts/muli/Muli-Bold.ttf"); }
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+
+html,body{
+    background-image: url('../images/scalesOfJustice.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+.container{
+    height: 100%;
+    align-content: center;
+}
+
+.card{
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.card-header{
+    color: white;
+}
+
+.form-wrapper {
+    margin-bottom: 17px; 
+}
+
+.form-wrapper label {
+    margin-bottom: 9px;
+    display: block; 
+    color: white;
+}
+
+.form-group {
+    display: flex; 
+}
+
+.form-group .form-wrapper:first-child {
+    margin-right: 20px; 
+}
+
+input, textarea, select, button {
+    font-family: "Muli-Regular";
+    color: white;
+    font-size: 13px; 
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-left: 20px; 
+}
+
+select option[value=""][disabled] {
+    display: none;
+    color: white; 
+}
+
+p, h1, h2, h3, h4, h5, h6, ul {
+    margin: 0; 
+}
+
+ul {
+    padding-left: 0;
+    margin-bottom: 0; 
+}
+
+a:hover {
+    text-decoration: none; 
+}
+
+:focus {
+    outline: none; 
+}
+
+.form-wrapper {
+    margin-bottom: 17px; 
+}
+.form-wrapper label {
+    margin-bottom: 9px;
+    display: block; 
+}
+
+.form-control {
+    border: 1px solid #ccc;
+    color: white;
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 20px;
+    font-family: "Muli-Bold";
+    background: none; 
+}
+    
+.form-control:focus {
+    border: 1px solid #FFC312;
+}
+
+button {
+    border: none;
+    width: 200px;
+    height: 40px;
+    margin: auto;
+    margin-top: 30px;
+    margin-left: 80px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: #f5c71a;
+    font-size: 13px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Muli-SemiBold";
+    border-radius: 20px;
+    overflow: hidden;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+button:before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff44f;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+button:hover:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66); 
+}
+
+.link{
+    color:#fff44f;
+    text-decoration: none;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.link-verify{
+    color: white;
+    text-decoration: none;
+}
+
+.link:hover{
+    opacity: 0.7;
+    text-decoration: none;
+    color: #f5c71a;;
+}
+
+.verification{
+    color: white;
+}
+
+label{
+    color: white;
+}
+
+.check {
+	cursor: pointer;
+	font-size: 15px;
+    color: white;
+}
+		
+/* Hide the default checkbox 
+input[type=checkbox] {
+	visibility: hidden;
+}*/
+		
+/* Creating a custom checkbox
+input[type=checkbox] {
+	position: absolute;
+	top: 0;
+	left: 0;
+    height: 12px;
+    width: 13px;
+    border-radius: 2px;
+    background-color: #ebebeb;
+    border: 1px solid #ccc;
+    font-family: Material-Design-Iconic-Font;
+    color: #000;
+    font-size: 10px;
+    font-weight: bolder;
+}*/
+		
+/* Specify the background color to be shown when hovering over checkbox 
+.check:hover input ~ .checkmark {
+	opacity: 0.5;
+}
+		
+/* Specify the background color to be shown when checkbox is active 
+.check input:active ~ .checkmark {
+			background-color: red;
+}*/
+		
+/* Specify the background color to be shown when checkbox is checked 
+input[type=checkbox]:checked {
+	background-color: yellow;
+}
+		
+/* Checkmark to be shown in checkbox */
+    /* It is not be shown when not checked 
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+		
+/* Display checkmark when checked 
+.check input:checked ~ .checkmark:after {
+	display: block;
+}*/
+		
+/* Styling the checkmark using webkit */
+	/* Rotated the rectangle by 45 degree and showing only two border to make it look like a tickmark 
+.check .checkmark:after {
+	left: 8px;
+	bottom: 5px;
+	width: 6px;
+	height: 12px;
+	border: solid white;
+	border-width: 0 4px 4px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+				
+    
+
+

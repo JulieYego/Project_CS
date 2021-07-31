@@ -89,8 +89,7 @@
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-bootstrap"></i></div>
                                 <h2 class="fs-4 fw-bold">Book new arrested person</h2>
-                                <a class="btn btn-primary btn-lg" href="#!">Book suspect </a>
-                               <!--<p class="mb-0">With Bootstrap 5, we've created a fresh new layout for this template!</p>--> 
+                                <a class="btn btn-primary btn-lg" href="book_suspect">Book suspect </a>
                             </div>
                         </div>
                     </div>
@@ -100,7 +99,7 @@
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
                                 <h2 class="fs-4 fw-bold">View Suspect Records</h2>
-                                <a class="btn btn-primary btn-lg" href="#!">View</a>
+                                <a class="btn btn-primary btn-lg" href="view_suspect">View</a>
                             </div>
                         </div>
                     </div>

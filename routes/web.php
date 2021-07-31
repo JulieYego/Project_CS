@@ -20,12 +20,20 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/test', [App\Http\Controllers\HomeController::class, 'index'])->name('test');
+//Route::get('/test', [App\Http\Controllers\HomeController::class, 'index'])->name('test');
 //Route::get('/officer_landing_page', [App\Http\Controllers\Officer\LandingController::class, 'index'])->name('officer_landing_page');
+Route::get('book_suspect', [App\Http\Controllers\SuspectController::class, 'index'])->name('book');
+Route::post('insert', [App\Http\Controllers\SuspectController::class, 'insert'])->name('insert');
+
+
+
 
 // officer protected routes
 Route::group(['middleware' => ['auth', 'officer'], 'prefix' => 'officer'], function () {
     Route::get('/officer_landing_page', [App\Http\Controllers\Officer\LandingController::class, 'index'])->name('officer_landing_page');
+    Route::get('/book_suspect', [App\Http\Controllers\SuspectController::class, 'index'])->name('book_suspect');
+    Route::post('insert', [App\Http\Controllers\SuspectController::class, 'insert'])->name('insert');
+    Route::get('/view_suspect', [App\Http\Controllers\SuspectController::class, 'view'])->name('view_suspect');
 });
 
 // ocs protected routes
