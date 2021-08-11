@@ -56,7 +56,7 @@
 	    </nav>
     </header>
 
-    <form action="" method="GET">
+    <!--<form action="" method="GET">
         <input name="search" id="search" type="text" placeholder="Search">
         <div class="inner-form">
             <div class="input-field">
@@ -64,7 +64,7 @@
               <button class="btn-search" type="button"></button>
             </div>
         </div>
-    </form>
+    </form>-->
     
     <div class="container">
          <div class="row">

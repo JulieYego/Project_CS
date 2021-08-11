@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('bootstrap-5.0.2/css/bootstrap.css') }}">
     <link href="/css/profile.css" rel="stylesheet" />
+    <link href="/css/form.css" rel="stylesheet" />
     <title>Profile</title>
 </head>
 <style>
@@ -31,6 +33,10 @@
                                 <div class="card-block">
                                     <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
                                     <div class="row">
+                                    <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Officer Number</p>
+                                            <h6 class="text-muted f-w-400">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->o_number }}}</h6>
+                                        </div>
                                         <div class="col-sm-8">
                                             <p class="m-b-10 f-w-600">First Name</p>
                                             <h6 class="text-muted f-w-400">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->first_name }}}</h6>
@@ -46,6 +52,9 @@
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Gender</p>
                                             <h6 class="text-muted f-w-400">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->gender }}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                        <a href="{{ route('password.request') }}" class="btn btn-outline-warning">Change Password</a>
                                         </div>
                                     </div>                                  
                                 </div>
