@@ -22,8 +22,9 @@ Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::get('/test', [App\Http\Controllers\HomeController::class, 'index'])->name('test');
 //Route::get('/officer_landing_page', [App\Http\Controllers\Officer\LandingController::class, 'index'])->name('officer_landing_page');
-Route::get('book_suspect', [App\Http\Controllers\SuspectController::class, 'index'])->name('book');
-Route::post('insert', [App\Http\Controllers\SuspectController::class, 'insert'])->name('insert');
+//Route::get('book_suspect', [App\Http\Controllers\DetainedController::class, 'index'])->name('book');
+//Route::post('insert', [App\Http\Controllers\DetainedController::class, 'insert'])->name('insert');
+Route::get('/book', [App\Http\Controllers\DetainedController::class, 'index'])->name('book');
 
 
 

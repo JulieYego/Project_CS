@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
     
     <head>
         <meta charset="utf-8" />
@@ -14,57 +14,52 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
+
+    <style>
+    h4{
+        color:white;
+    }
+
+    img {
+    height: 80px;
+}
+</style>
     <body>
-        <!--<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container px-lg-5">
-            <a class="navbar-brand" href="#!">Welcome {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}!</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Help Desk</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>    
-                    </li>
-                </ul>                   
-            </div>
-        </div>
-    </nav>
-</div>-->
-        
-        <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container px-lg-5">
-                <a class="navbar-brand" href="#!">Welcome Officer!</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Help Desk</a></li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>    
-                    </li>
-                    </ul>             
-                </div>
-            </div>
-        </nav>-->
+    <header class="header-area overlay">
+        <nav class="navbar navbar-expand-md navbar-dark">
+		    <div class="container">
+                <img src="/images/logo.png" class="navbar-brand" alt="Kenyan Logo">	
+                <a class="navbar-brand" href="#">Welcome Officer {{ Auth::user()->o_number }}</a>
+			        <div id="main-nav" class="collapse navbar-collapse">
+				        <ul class="navbar-nav ml-auto">
+					        <li>
+                                <a href="{{ route('officer_landing_page') }}" class="nav-item nav-link active">Home</a>
+                            </li>
+					        <li>
+                                <a href="{{ route('view_suspect') }}" class="nav-item nav-link">View suspects</a>
+                            </li>
+					        <li>
+						        <a href="{{ route('book_suspect') }}" class="nav-item nav-link" data-toggle="dropdown">Book suspects</a>
+					        </li>
+					        <li>
+                                <a href="#" class="nav-item nav-link">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+				        </ul>
+			        </div>
+		    </div>
+	    </nav>
+    </header>
+           
         <!-- Header-->
         <header class="py-5">
             <div class="container px-lg-5">

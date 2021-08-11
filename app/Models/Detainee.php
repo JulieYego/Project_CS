@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class suspect extends Model
+class Detained extends Model
 {
     use HasFactory;
-    protected $table = 'suspects';
+    protected $table = 'detained';
     protected $fillable = [
         'first_name',
         'last_name',
@@ -19,6 +19,5 @@ class suspect extends Model
         'place',
         'photo',
         'present',
-        'status',
     ];
 }
