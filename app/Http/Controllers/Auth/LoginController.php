@@ -31,16 +31,16 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
+        print_r("User is "+$user);;
         // to officer dashboard
         if($user->isOfficer()) {
-            return redirect(
-                route('officer_landing_page')
-            );
+            // route('officer_landing_page')
+            return redirect()->route('officer_landing_page');
         }
 
         // to ocs dashboard
         else if(auth()->user()->isOcs()) {
-            return redirect(route('ocs_landing_page'));
+            return redirect()->route('ocs_landing_page');
         }
     }
     

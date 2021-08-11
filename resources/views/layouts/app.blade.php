@@ -25,8 +25,10 @@
     <link rel="stylesheet" href="{{ asset('css/form.css') }}">
 </head>
 <body>
-    <div id="app">
-        <!--<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    
+        <!--
+            <div id="app">
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Book a Suspect') }}
@@ -42,8 +44,8 @@
                     </ul>
 
                     <!- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links ->
+                    <!--<ul class="navbar-nav ml-auto">
+                        <!- Authentication Links ->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -78,12 +80,15 @@
                     </ul>
                 </div>
             </div>
-        </nav>-->
+        </nav>
 
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+    </div>-->
+    <main class="py-4">
+            @yield('content')
+        </main>
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
