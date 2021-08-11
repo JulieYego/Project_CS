@@ -38,7 +38,7 @@
 						        <a href="{{ route('book_suspect') }}" class="nav-item nav-link">Book suspects</a>
 					        </li>
 					        <li>
-                                <a href="{{ route('view_profile') }}" class="nav-item nav-link ">View profile</a>
+                                <a href="{{ route('officer_landing_page') }}" class="nav-item nav-link ">View profile</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"
