@@ -36,11 +36,11 @@ class LoginController extends Controller
             return redirect(
                 route('officer_landing_page')
             );
-        }
-
         // to ocs dashboard
-        else if(auth()->user()->isOcs()) {
-            return redirect(route('ocs_landing_page'));
+        }else if($user->isOcs()) {
+            return redirect(
+                route('ocs_landing_page')
+            ); 
         }
     }
     

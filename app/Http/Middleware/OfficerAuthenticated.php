@@ -22,13 +22,16 @@ class OfficerAuthenticated
         {
           if(Auth::user()->isOcs())
           {
-            return redirect(route('ocs_landing_page'));
+            return route('ocs_landing_page');
+
           }  
-          elseif(Auth::user()->isOfficer())
+          else if(Auth::user()->isOfficer())
           {
             return $next($request);
           }   
         }
         abort(404);//for other user
+
+        
     }
 }

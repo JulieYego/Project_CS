@@ -23,12 +23,13 @@ class OcsAuthenticated
           {
             return redirect(route('officer.officer_landing_page'));
           }  
-          elseif(Auth::user()->isOcs())
+          else if(Auth::user()->isOcs())
           {
             return $next($request);
           }   
         }
         abort(404);//for other user
+
     }
 
 }
