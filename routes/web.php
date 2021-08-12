@@ -28,7 +28,7 @@ Auth::routes(['verify' => true]);
 //Route::get('/officer_landing_page', [App\Http\Controllers\Officer\LandingController::class, 'index'])->name('officer_landing_page');
 //Route::get('book_suspect', [App\Http\Controllers\DetainedController::class, 'index'])->name('book');
 //Route::post('insert', [App\Http\Controllers\DetainedController::class, 'insert'])->name('insert');
-Route::get('/search', [App\Http\Controllers\Ocs\LandingController::class, 'search']);
+Route::get('/search', [App\Http\Controllers\Ocs\LandingController::class, 'search'])->name('web.search');
 
 // officer protected routes
 Route::group(['middleware' => ['auth', 'officer'], 'prefix' => 'officer'], function () {

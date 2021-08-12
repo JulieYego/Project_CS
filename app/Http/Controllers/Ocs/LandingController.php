@@ -39,6 +39,6 @@ class LandingController extends Controller
     }
 
     public function search(){
-        $search_text = $_GET['query'];
+        return view('search');
     }
 }
