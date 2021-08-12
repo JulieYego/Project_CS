@@ -114,11 +114,12 @@ class SuspectController extends Controller
         }
         $suspect->status = 'not presented';
         $suspect->save();
+        //here to change the book back part
         return redirect()->back()->with('status','Record Added Successfully');
     }
 
     public function view(){
         $suspects = suspect::all();
-        return view('officers.view_suspects')->with('suspects',$suspects);
+        return view('officers\view_suspects')->with('suspects',$suspects);
     }
 }

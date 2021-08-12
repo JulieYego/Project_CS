@@ -21,42 +21,42 @@
 </style>
 <body>
 
-    <header class="header-area overlay">
-        <nav class="navbar navbar-expand-md navbar-dark">
-		    <div class="container">
-                <img src="/images/logo.png" class="navbar-brand" alt="Kenyan Logo">	
-                <a class="navbar-brand" href="#">Welcome Officer {{ Auth::user()->o_number }}</a>
-			        <div id="main-nav" class="collapse navbar-collapse">
-				        <ul class="navbar-nav ml-auto">
-					        <li>
-                                <a href="{{ route('officer_landing_page') }}" class="nav-item nav-link active">Home</a>
-                            </li>
-					        <li>
-                                <a href="{{ route('view_suspect') }}" class="nav-item nav-link">View suspects</a>
-                            </li>
-					        <li>
-						        <a href="{{ route('book_suspect') }}" class="nav-item nav-link">Book suspects</a>
-					        </li>
-					        <li>
-                                <a href="{{ route('officer_landing_page') }}" class="nav-item nav-link ">View profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}"
+<header class="site-navbar" role="banner">
+        <div class="container">
+            <div class="row align-items-center"> 
+                <div class="col-11 col-xl-2">
+                    <img src="/images/logo.png" class="navbar-brand" alt="Kenyan Logo">	
+                </div>
+                <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav ml-auto d-none d-lg-block justify-content-end">
+                        <li><a href="{{ route('officer_landing_page') }}"><span>Home</span></a></li>
+                            <li><a href="{{ route('book_suspect') }}"><span>Book Suspect</span></a></li>
+                            <li><a href="{{ route('view_suspect') }}"><span>View Suspects</span></a></li>
+                            <li><a href="{{ route('view_profile') }}"><span>View my Profile</span></a></li>
+                            <li class="active">
+                                <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                    Logout
+                                    <span>Logout</span>
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </li>
-				        </ul>
-			        </div>
-		    </div>
-	    </nav>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;">
+                    <a href="#" class="site-menu-toggle js-menu-toggle text-white">
+                        <span class="icon-menu h3"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <form action="" method="GET">
+    <!--<form action="" method="GET">
         <input name="search" id="search" type="text" placeholder="Search">
         <div class="inner-form">
             <div class="input-field">
@@ -64,12 +64,12 @@
               <button class="btn-search" type="button"></button>
             </div>
         </div>
-    </form>
+    </form>-->
     
     <div class="container">
          <div class="row">
             <div class="col-md-offset-3">
-                   <h4>View Suspects</h4><hr>
+                   <hr>
                    <table class="table table-dark table-striped table-hover">
                        <thead>
                            <tr>
