@@ -112,6 +112,24 @@ a:hover {
     border: 1px solid #FFC312;
 }
 
+.search{
+  width: 30%;
+  float: right;
+}
+
+.input-field{
+    border: 1px solid #ccc;
+    color: white;
+    display: block;
+    width: 50%;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 20px;
+    font-family: "Muli-Bold";
+    background: none;
+
+}
+
 button {
     border: none;
     width: 200px;

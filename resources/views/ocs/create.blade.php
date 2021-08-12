@@ -23,8 +23,48 @@
         top:-80px;
         margin-left: 190px;
     }
-</style>
 
+    h4{
+        color:white;
+    }
+
+    img {
+    height: 80px;
+</style>
+<header class="site-navbar" role="banner">
+        <div class="container">
+            <div class="row align-items-center"> 
+                <div class="col-11 col-xl-2">
+                    <img src="/images/logo.png" class="navbar-brand" alt="Kenyan Logo">	
+                </div>
+                <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav ml-auto d-none d-lg-block justify-content-end">
+                            <li><a href="{{ route('ocs_landing_page') }}"><span>Home</span></a></li>
+                            <li><a href="{{ route('create_officer') }}"><span>Add Officer</span></a></li>
+                            <li><a href="{{ route('view_officer') }}"><span>View Officers</span></a></li>
+                            <li><a href="#"><span>View my Profile</span></a></li>
+                            <li class="active">
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    <span>Logout</span>
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;">
+                    <a href="#" class="site-menu-toggle js-menu-toggle text-white">
+                        <span class="icon-menu h3"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">

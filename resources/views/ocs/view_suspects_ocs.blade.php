@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap-5.0.2/css/bootstrap.css') }}">
     <link href="/css/form.css" rel="stylesheet" />
     <link href="/css/styles.css" rel="stylesheet" />
-    <title>View Officers</title>
+    <title>View Suspects</title>
 </head>
 
 <style>
@@ -30,10 +30,10 @@
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu js-clone-nav ml-auto d-none d-lg-block justify-content-end">
-                            <li><a href="{{ route('ocs_landing_page') }}"><span>Home</span></a></li>
-                            <li><a href="{{ route('create_officer') }}"><span>Add Officer</span></a></li>
-                            <li><a href="{{ route('view_officer') }}"><span>View Officers</span></a></li>
-                            <li><a href="#"><span>View my Profile</span></a></li>
+                        <li><a href="{{ route('officer_landing_page') }}"><span>Home</span></a></li>
+                            <li><a href="{{ route('book_suspect') }}"><span>Book Suspect</span></a></li>
+                            <li><a href="{{ route('view_suspect') }}"><span>View Suspects</span></a></li>
+                            <li><a href="{{ route('view_profile') }}"><span>View my Profile</span></a></li>
                             <li class="active">
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -56,13 +56,15 @@
         </div>
     </header>
 
-    <form class="d-flex search" method="GET" action="{{ url('/search'}}" role="search">
-        @csrf
-        <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-warning" type="submit">Search</button>
-    </form>
-
-      
+    <!--<form action="" method="GET">
+        <input name="search" id="search" type="text" placeholder="Search">
+        <div class="inner-form">
+            <div class="input-field">
+              <input class="form-control" id="search" type="text" placeholder="Search" />
+              <button class="btn-search" type="button"></button>
+            </div>
+        </div>
+    </form>-->
     
     <div class="container">
          <div class="row">
@@ -71,27 +73,36 @@
                    <table class="table table-dark table-striped table-hover">
                        <thead>
                            <tr>
-                               <th>Officer Number</th>
+                               <th>Photo</th>
                                <th>First Name</th>
                                <th>Last Name</th>
-                               <th>Email Address</th>
+                               <th>ID Number</th>
                                <th>Gender</th>
-                               <th colspan="2">Actions</th>
+                               <th scope="col">Arresting Officer</th>
+                               <th>Reason of Arrest</th>
+                               <th>Place of Arrest</th>
+                               <th>Time of Booking</th>
+                               <th>To be presented to court before</th>
+                               <th>Status</th>
+                               <th>Update</th>
                            </tr>
                        </thead>
                        <tbody>
-                           @foreach($officers as $officer)
+                           @foreach($suspects as $suspect)
                            <tr>
-                               <td>{{ $officer->o_number}}</td>
-                               <td>{{ $officer->first_name}}</td>
-                               <td>{{ $officer->last_name}}</td>
-                               <td>{{ $officer->email}}</td>
-                               <td>{{ $officer->gender}}</td>                              
+                               <td><img src="{{ asset('uploads/suspect/' . $suspect->photo) }}" width="100px" height="100px" alt="Photo"></td>
+                               <td>{{ $suspect->first_name}}</td>
+                               <td>{{ $suspect->last_name}}</td>
+                               <td>{{ $suspect->IDnumber}}</td>
+                               <td>{{ $suspect->gender}}</td>
+                               <td>{{ $suspect->officer}}</td>
+                               <td>{{ $suspect->crime}}</td>
+                               <td>{{ $suspect->place}}</td>
+                               <td>{{ \Carbon\Carbon::parse($suspect->created_at)->toDayDateTimeString() }}</td>
+                               <td>{{ \Carbon\Carbon::parse($suspect->present)->toDayDateTimeString() }}</td>
+                               <td>{{ $suspect->status}}</td>
                                <td>
-                                   <a href="" class="btn btn-outline-warning">Edit</a>
-                               </td>
-                               <td>
-                                   <a href="" class="btn btn-outline-danger">Delete</a>
+                                   <a href="" class="btn btn-outline-warning">Update</a>
                                </td>
                            </tr>
                            @endforeach

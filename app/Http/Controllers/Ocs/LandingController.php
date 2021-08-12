@@ -25,12 +25,20 @@ class LandingController extends Controller
 
     public function create()
     {
-        return view('Ocs\create');
-        
+        return view('Ocs\create');     
+    }
+
+    public function book()
+    {
+        return view('Ocs\view_suspects_ocs');     
     }
 
     public function view(){
         $officers = user::all();
         return view('ocs.view_officer')->with('officers',$officers);
+    }
+
+    public function search(){
+        $search_text = $_GET['query'];
     }
 }
