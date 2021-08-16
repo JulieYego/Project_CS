@@ -56,16 +56,14 @@
         </div>
     </header>
 
-    <form class="d-flex search" method="GET" action="{{ url('/search'}}" role="search">
+    <!--<form class="d-flex search" method="GET" action="" role="search">
         @csrf
         <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-warning" type="submit">Search</button>
-    </form>
+    </form>-->
 
-      
-    
     <div class="container">
-         <div class="row">
+        <div class="row">
             <div class="col-md-offset-3">
                    <hr>
                    <table class="table table-dark table-striped table-hover">
@@ -98,7 +96,7 @@
                        </tbody>
                    </table>     
             </div>
-         </div>
+        </div>
     </div>
 </body>
     

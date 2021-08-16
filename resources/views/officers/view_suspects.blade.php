@@ -21,7 +21,7 @@
 </style>
 <body>
 
-<header class="site-navbar" role="banner">
+    <header class="site-navbar" role="banner">
         <div class="container">
             <div class="row align-items-center"> 
                 <div class="col-11 col-xl-2">
@@ -56,14 +56,10 @@
         </div>
     </header>
 
-    <!--<form action="" method="GET">
-        <input name="search" id="search" type="text" placeholder="Search">
-        <div class="inner-form">
-            <div class="input-field">
-              <input class="form-control" id="search" type="text" placeholder="Search" />
-              <button class="btn-search" type="button"></button>
-            </div>
-        </div>
+    <!--<form class="d-flex search" method="GET" action="" role="search">
+        @csrf
+        <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-warning" type="submit">Search</button>
     </form>-->
     
     <div class="container">
@@ -102,8 +98,8 @@
                                <td>{{ \Carbon\Carbon::parse($suspect->present)->toDayDateTimeString() }}</td>
                                <td>{{ $suspect->status}}</td>
                                <td>
-                                   <a href="" class="btn btn-outline-warning">Update</a>
-                               </td>
+                                   <a class="btn btn-outline-warning" href="#" data-toggle="modal" data-target="#ModalEdit">{{ __('Edit') }}</a>
+                               </td>                               
                            </tr>
                            @endforeach
                        </tbody>
@@ -111,6 +107,8 @@
             </div>
          </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
     
 </html>

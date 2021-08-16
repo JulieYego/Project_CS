@@ -38,7 +38,20 @@ class LandingController extends Controller
         return view('ocs.view_officer')->with('officers',$officers);
     }
 
-    public function search(){
-        $search_text = $_GET['query'];
+    public function search(Request $request){
+        $search_results = user::where([
+            ['first_name','!=',Null],
+            [function ($query) use ($request){
+                if(($query = $request->query)){
+                    $query->orWhere('first_name','LIKE','%' . $query . '%')->get();
+                }
+            }]
+        ])
+            ->orderBy("id","desc")
+            ->paginate(10);
+
+            return view('officers.view_suspects', compact('user'))
+                ->with('i',(request()->input('page',1) - 1) * 5);
+
     }
 }
