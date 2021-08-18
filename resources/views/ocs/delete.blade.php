@@ -13,7 +13,7 @@
         <div class="modal-body">
             @csrf
             @method('delete')
-            <h5>Are you sure you want to delete the  selected user {{ $data->first_name }} {{ $data->last_name }}?</h5>
+            <h5>Are you sure you want to delete the  selected user {{ $data->first_name }} {{ $data->last_name }}?!</h5>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
