@@ -65,7 +65,6 @@
                         <div class="row m-l-0 m-r-0">
                             <div class="col-sm-4 bg-c-lite-green user-profile">
                                 <div class="card-block text-center text-white">
-                                    <div class="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"> </div>
                                     <h6 class="f-w-600">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->first_name }}} {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->last_name }}} </h6>
                                     <p>{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->o_number }}}</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                 </div>
