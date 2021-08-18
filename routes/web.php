@@ -45,6 +45,16 @@ Route::group(['middleware' => ['auth', 'ocs'], 'prefix' => 'ocs'], function () {
     Route::get('/create_officer', [App\Http\Controllers\Ocs\LandingController::class, 'create'])->name('create_officer');
     Route::get('/view_officer', [App\Http\Controllers\Ocs\LandingController::class, 'view'])->name('view_officer');
     //Route::get('/view_suspect', [App\Http\Controllers\SuspectController::class, 'view'])->name('view_suspect');
+    Route::get('/view_officer', [App\Http\Controllers\Ocs\LandingController::class, 'view'])->name('view_officer');
+    //delete
+    Route::get('/delete/{id}', [App\Http\Controllers\Ocs\LandingController::class, 'delete'])->name('delete');
+    //show the data according to id
+    Route::get('/edit/{id}', [App\Http\Controllers\Ocs\LandingController::class, 'edit'])->name('edit');
+    //update and send to page
+    Route::patch('/update/{id}', [App\Http\Controllers\Ocs\LandingController::class, 'update'])->name('update');
+
+    Route::post('create_o', [App\Http\Controllers\Ocs\LandingController::class, 'create_o'])->name('create_o');
+  Route::delete('/delete/{id}',[App\Http\Controllers\Ocs\LandingController::class, 'destroy'])->name('destroy');
 });
 
 

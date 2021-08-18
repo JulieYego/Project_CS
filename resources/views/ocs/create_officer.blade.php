@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="create_o" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <div class="form-wrapper">
@@ -160,8 +160,8 @@
                             </div>
                         </div>
 
-                        <a class="link login" href="{{ route('login') }}">
-                            {{ __('I already have an account') }}
+                       <!-- <a class="link login" href="{{ route('login') }}">
+                            {{ __('I already have an account') }}-->
                         </a>
                     </form>
                 </div>
