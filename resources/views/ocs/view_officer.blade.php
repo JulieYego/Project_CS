@@ -90,7 +90,7 @@
                                 <td>{{ $officer->gender}}</td>                              
                                 <td>
                                     <!--take to update_officer and call function edit-->
-                                    <a href="{{route('edit',$officer->id)}}"  class="btn btn-outline-warning">Edit</a>
+                                    <a href="{{route('edit',$officer->id)}}"  class="btn btn-outline-warning">Edit O</a>
                                 </td>
                                 <td>
 
