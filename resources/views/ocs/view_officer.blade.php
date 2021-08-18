@@ -95,7 +95,7 @@
                                 <td>
 
                                     <!--Return id and delete using that link-->
-                                    <a href="{{route('delete',$officer->id)}}" class ="btn btn-outline-danger">Delete O</a>
+                                    <a href="{{route('delete',$officer->id)}}" class ="btn btn-outline-danger">Delete </a>
                                 </td>
                             </tr>
                             @endforeach
