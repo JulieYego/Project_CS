@@ -35,7 +35,7 @@
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu js-clone-nav ml-auto d-none d-lg-block justify-content-end">
                             <li><a href="{{ route('ocs_landing_page') }}"><span>Home</span></a></li>
-                            <li><a href="{{ route('create_officer') }}"><span>Add Officer</span></a></li>
+                            <li><a href="{{ route('create_officer') }}"><span>Add Officers</span></a></li>
                             <li><a href="{{ route('view_officer') }}"><span>View Officers</span></a></li>
                             <li><a href="#"><span>View my Profile</span></a></li>
                             <li class="active">
