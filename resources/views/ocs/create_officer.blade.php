@@ -162,7 +162,7 @@
 
                        <!-- <a class="link login" href="{{ route('login') }}">
                             {{ __('I already have an account') }}-->
-                        </a>
+                      
                     </form>
                 </div>
             </div>

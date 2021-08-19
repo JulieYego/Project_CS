@@ -21,7 +21,11 @@
 </style>
 <body>
 
+<<<<<<< HEAD
     <header class="site-navbar" role="banner">
+=======
+<header class="site-navbar" role="banner">
+>>>>>>> 106715e40abb7e237a6e8a6aa3554998b44d5d20
         <div class="container">
             <div class="row align-items-center"> 
                 <div class="col-11 col-xl-2">

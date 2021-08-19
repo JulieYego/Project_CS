@@ -41,9 +41,15 @@
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu js-clone-nav ml-auto d-none d-lg-block justify-content-end">
                             <li><a href="{{ route('ocs_landing_page') }}"><span>Home</span></a></li>
+<<<<<<< HEAD
                             <li><a href="{{ route('create_officer') }}"><span>Add Officer</span></a></li>
                             <li><a href="{{ route('view_officer') }}"><span>View Officers</span></a></li>
                             <li><a href="#"><span>View my Profile</span></a></li>
+=======
+                            <li><a href="{{ route('book_suspect') }}"><span>Book Suspect</span></a></li>
+                            <li><a href="{{ route('view_suspect') }}"><span>View Suspects</span></a></li>
+                            <li><a href="{{ route('create_officer') }}"><span>View my Profile</span></a></li>
+>>>>>>> 106715e40abb7e237a6e8a6aa3554998b44d5d20
                             <li class="active">
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
