@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap-5.0.2/css/bootstrap.css') }}">
     <link href="/css/form.css" rel="stylesheet" />
     <link href="/css/styles.css" rel="stylesheet" />
-    <title>View Suspects</title>
+    <title>View Officers</title>
 </head>
 
 <style>
@@ -20,86 +20,94 @@
 }
 </style>
 <body>
-
-    <header class="header-area overlay">
-        <nav class="navbar navbar-expand-md navbar-dark">
-		    <div class="container">
-                <img src="/images/logo.png" class="navbar-brand" alt="Kenyan Logo">	
-                <a class="navbar-brand" href="#">Welcome Officer {{ Auth::user()->o_number }}</a>
-			        <div id="main-nav" class="collapse navbar-collapse">
-				        <ul class="navbar-nav ml-auto">
-					        <li>
-                                <a href="{{ route('officer_landing_page') }}" class="nav-item nav-link active">Home</a>
-                            </li>
-					        <li>
-                                <a href="{{ route('view_suspect') }}" class="nav-item nav-link">View suspects</a>
-                            </li>
-					        <li>
-						        <a href="{{ route('book_suspect') }}" class="nav-item nav-link">Book suspects</a>
-					        </li>
-					        <li>
-                                <a href="{{ route('officer_landing_page') }}" class="nav-item nav-link ">View profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}"
+<div class ="container-fluid">
+    <header class="site-navbar" role="banner">
+        <div class="container">
+            <div class="row align-items-center"> 
+                <div class="col-11 col-xl-2">
+                    <img src="/images/logo.png" class="navbar-brand" alt="Kenyan Logo">	
+                </div>
+                <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav ml-auto d-none d-lg-block justify-content-end">
+                            <li><a href="{{ route('ocs_landing_page') }}"><span>Home</span></a></li>
+                            <li><a href="{{ route('create_officer') }}"><span>Add Officer</span></a></li>
+                            <li><a href="{{ route('view_officer') }}"><span>View Officers</span></a></li>
+                            <li><a href="#"><span>View my Profile</span></a></li>
+                            <li class="active">
+                                <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                    Logout
+                                    <span>Logout</span>
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </li>
-				        </ul>
-			        </div>
-		    </div>
-	    </nav>
-    </header>
-
-    <!--<form action="" method="GET">
-        <input name="search" id="search" type="text" placeholder="Search">
-        <div class="inner-form">
-            <div class="input-field">
-              <input class="form-control" id="search" type="text" placeholder="Search" />
-              <button class="btn-search" type="button"></button>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;">
+                    <a href="#" class="site-menu-toggle js-menu-toggle text-white">
+                        <span class="icon-menu h3"></span>
+                    </a>
+                </div>
             </div>
         </div>
-    </form>-->
-    
-    <div class="container">
-         <div class="row">
-            <div class="col-md-offset-3">
-                   <h4>View Officers</h4><hr>
-                   <table class="table table-dark table-striped table-hover">
-                       <thead>
-                           <tr>
-                               <th>Officer Number</th>
-                               <th>First Name</th>
-                               <th>Last Name</th>
-                               <th>Email Address</th>
-                               <th>Gender</th>
-                               <th>Update</th>
-                           </tr>
-                       </thead>
-                       <tbody>
-                           @foreach($officers as $officer)
-                           <tr>
-                               <td>{{ $officer->o_number}}</td>
-                               <td>{{ $officer->first_name}}</td>
-                               <td>{{ $officer->last_name}}</td>
-                               <td>{{ $officer->IDnumber}}</td>
-                               <td>{{ $officer->gender}}</td>
-                               
-                               <td>
-                                   <a href="" class="btn btn-outline-warning">Update</a>
-                               </td>
-                           </tr>
-                           @endforeach
-                       </tbody>
-                   </table>     
+    </header>
+
+        <form class="d-flex search" method="GET" action="{{ url('/search')}}" role="search">
+            @csrf
+            <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-warning" type="submit">Search</button>
+        </form>
+
+        
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-3">
+                    <hr>
+                    <table class="table table-dark table-striped table-hover">
+                        <thead>
+                            <tr>
+                                
+                                <th>Officer Number</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email Address</th>
+                                <th>Gender</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($officers as $officer)
+                            <tr>
+                                <td>{{ $officer->o_number}}</td>
+                                <td>{{ $officer->first_name}}</td>
+                                <td>{{ $officer->last_name}}</td>
+                                <td>{{ $officer->email}}</td>
+                                <td>{{ $officer->gender}}</td>                              
+                                <td>
+                                    <!--take to update_officer and call function edit-->
+                                    <a href="{{route('edit',$officer->id)}}"  class="btn btn-outline-warning">Edit </a>
+                                </td>
+                                <td>
+
+                                    <!--Return id and delete using that link-->
+                                    <a href="{{route('delete',$officer->id)}}" class ="btn btn-outline-danger">Delete </a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>     
+                </div>
             </div>
-         </div>
-    </div>
+                   
+        </div>
+    </div> 
+  
+</div>
 </body>
     
 </html>

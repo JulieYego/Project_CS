@@ -19,5 +19,19 @@ class LandingController extends Controller
 
     }
 
+<<<<<<< HEAD
+    public function profile() {
+        //return view('officers.officer_landing_page');
+        $officers = Auth::user();
+        return view('officers.profile')->with('officers',$officers);
+    }
+
+    public function search() {
+        $search_text = $_GET('query');
+        $search = user::where('first_name','LIKE','%'.$search_text.'%')->get();
+        return view('officers.view_suspects' ,compact('search'));
+    }
+=======
     
+>>>>>>> 106715e40abb7e237a6e8a6aa3554998b44d5d20
 }
