@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\suspect;
 use Carbon\Carbon;
+use App\DataTables\SuspectsDataTable;
 
 class SuspectController extends Controller
 {
@@ -40,7 +41,7 @@ class SuspectController extends Controller
             ['day' => 20, 'month' => 10],//mashujaa day
             ['day' => 12, 'month' => 12],//jamuhuri day
             ['day' => 25, 'month' => 12],//christmas day
-            ['day' => 5, 'month' => 8],//text
+            ['day' => 5, 'month' => 8],//test
             ['day' => 26, 'month' => 12]//boxing day
         ];
 
@@ -125,5 +126,9 @@ class SuspectController extends Controller
 
     public function edit() {
         return view('officers.edit_suspect');
+    }
+
+    public function suspects(SuspectsDataTable $dataTable){
+        return $dataTable -> render('officers\suspects');
     }
 }

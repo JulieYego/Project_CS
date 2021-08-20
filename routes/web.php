@@ -24,9 +24,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Route::get('/ocs', [App\Http\Controllers\Ocs\LandingController::class, 'new'])->name('ocs');
 
 
-//Route::get('/test', [App\Http\Controllers\HomeController::class, 'index'])->name('test');
+Route::get('/suspects', [App\Http\Controllers\SuspectController::class, 'suspects'])->name('suspects');
 //Route::get('/officer_landing_page', [App\Http\Controllers\Officer\LandingController::class, 'index'])->name('officer_landing_page');
-Route::get('/officer_landing_page', [App\Http\Controllers\Officer\LandingController::class, 'index'])->name('book');
+//Route::get('/suspects', [App\Http\Controllers\Officer\LandingController::class, 'index'])->name('book');
 //Route::post('insert', [App\Http\Controllers\DetainedController::class, 'insert'])->name('insert');
 //Route::get('/edit', [App\Http\Controllers\SuspectController::class, 'edit'])->name('edit');
 
