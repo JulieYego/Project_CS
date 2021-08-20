@@ -127,8 +127,9 @@
                             <label for="gender" class="">{{ __('Status') }}</label>
                                 <select name="gender" style="width: 450px;" id="gender" class="form-control" required>
                                     <option value="Select Gender">Select Status</option>
-                                    <option value="Male">Not presented</option>
-                                    <option value="Female">Presented</option>
+                                    <option value="">Not presented</option>
+                                    <option value="">Presented</option>
+                                    <option value="">Cash bail</option>
                                 </select>
                                 @error('gender')
                                     <span class="invalid-feedback" role="alert">

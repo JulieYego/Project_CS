@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap-5.0.2/css/bootstrap.css') }}">
     <link href="/css/form.css" rel="stylesheet" />
     <link href="/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <title>View Suspects</title>
 </head>
 
@@ -59,18 +60,12 @@
             </div>
         </div>
     </header>
-
-    <!--<form class="d-flex search" method="GET" action="" role="search">
-        @csrf
-        <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-warning" type="submit">Search</button>
-    </form>-->
     
     <div class="container">
          <div class="row">
             <div class="col-md-offset-3">
                    <hr>
-                   <table class="table table-dark table-striped table-hover">
+                   <table class="table table-dark table-striped table-hover" id="tbl_suspects">
                        <thead>
                            <tr>
                                <th>Photo</th>
@@ -112,7 +107,13 @@
          </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <script src="js/scripts.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#tbl_suspects').DataTable();
+        });
+    </script>
 </body>
     
 </html>
