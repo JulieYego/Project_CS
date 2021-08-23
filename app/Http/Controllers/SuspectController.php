@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\suspect;
 use Carbon\Carbon;
 use App\DataTables\SuspectsDataTable;
-
+use DataTables;
 class SuspectController extends Controller
 {
     public function index(){
@@ -125,10 +125,44 @@ class SuspectController extends Controller
     }
 
     public function edit() {
-        return view('officers.edit_suspect');
+        return view('officers\edit_suspect');
     }
 
     public function suspects(SuspectsDataTable $dataTable){
         return $dataTable -> render('officers\suspects');
     }
+
+    public function view_suspects(Request $request){
+        if($request -> ajax()){
+            $data = suspect::latest() -> get();
+            return DataTables::of($data)
+            ->addIndexColumn()
+            ->addColumn('action',function($suspect){
+                /*$btn = '<a href= "#" class="btn btn-outline-warning edit" id="'.$suspect->id.'">
+                            <i class="glyphicon glyphicon-edit"></i>
+                                Update</a>';
+                return $btn;*/
+
+                $btn = 
+                     '<a href="#" class="btn btn-outline-warning edit" id="'.$suspect->id.'"><i class="glyphicon glyphicon-edit"></i> Update</a>';
+
+                return $btn;
+            })
+            ->editColumn('created_at',function($suspect){
+                return[
+                    'display' => Carbon::parse($suspect->created_at)->toDayDateTimeString(),
+                ]; 
+            })
+            ->editColumn('present',function($suspect){
+                return[
+                    'display' => Carbon::parse($suspect->present)->toDayDateTimeString(),
+                ]; 
+            })
+            ->rawcolumns(['action'])
+            ->make(true);
+        }
+        return view('officers\suspects');
+    }
+
 }
+
