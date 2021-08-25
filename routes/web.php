@@ -22,8 +22,6 @@ Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::get('/ocs_landing_page', [App\Http\Controllers\Ocs\LandingController::class, 'index'])->name('ocs_landing_page');
 //Route::get('/ocs', [App\Http\Controllers\Ocs\LandingController::class, 'new'])->name('ocs');
-
-
 Route::get('/suspects', [App\Http\Controllers\SuspectController::class, 'view_suspects'])->name('suspects');
 Route::get('/edit_suspect', [App\Http\Controllers\SuspectController::class, 'edit'])->name('v_suspect');
 
