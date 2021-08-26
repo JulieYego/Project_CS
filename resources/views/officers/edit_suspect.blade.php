@@ -28,7 +28,124 @@
     img {
     height: 80px;
     }
+
+    .modal-content{
+        background-color: rgba(0,0,0,1);
+    }
+
+    .modal-header{
+        color:#FFC312;
+    }
 </style>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Update
+</button>
+
+<!-- Edit modal  -->
+<div class="modal fade mod" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Suspect</h5>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="">
+                    <form action="" method="post">
+                    @csrf
+                        <div class="form-group">
+                            <div class="form-wrapper">
+                                <label for="first_name" class="">{{ __('First Name') }}</label>
+                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
+                                @error('first_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-wrapper">
+                                <label for="last_name" class="">{{ __('Last Name') }}</label>
+                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+                                @error('last_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> 
+
+                        <div class="form-wrapper">
+                            <label for="officer">{{ __('Arresting Officer') }}</label>
+                            <input id="officer" type="text" style="width: 450px;" class="form-control @error('officer') is-invalid @enderror" name="officer" value="{{ old('officer') }}" required autocomplete="officer" autofocus>
+                                @error('officer')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+
+                        <div class="form-wrapper">
+                            <label for="crime">{{ __('Reason of Arrest') }}</label>
+                            <input id="crime" type="text" style="width: 450px;" class="form-control @error('crime') is-invalid @enderror" name="crime" value="{{ old('crime') }}" required autocomplete="crime" autofocus>
+                                @error('crime')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+
+                        <div class="form-wrapper">
+                            <label for="place">{{ __('Place of Arrest') }}</label>
+                            <input id="place" type="text" style="width: 450px;" class="form-control @error('place') is-invalid @enderror" name="place" value="{{ old('place') }}" required autocomplete="place" autofocus>
+                                @error('place')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-wrapper">
+                            <label for="status" class="">{{ __('Status') }}</label>
+                            <select name="status" id="status" class="form-control" required>
+                                    <option value="Select Status">Select Status</option>
+                                    <option value="">Not presented</option>
+                                    <option value="">Presented</option>
+                                    <option value="">Cash bail</option>
+                                </select>
+                                @error('status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-wrapper">
+                                <label for="last_name" class="">{{ __('Time presented') }}</label>
+                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+                                @error('last_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> 
+                    </form>
+
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -138,7 +255,6 @@
                                 @enderror
                         </div>
                         
-
                         <div class="sibs">
                             <div class="back">
                                 <button onclick="back()">{{ __('BACK') }}</button>
