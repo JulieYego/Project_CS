@@ -118,7 +118,8 @@ class SuspectController extends Controller
         return redirect()->back()->with('status','Record Added Successfully');
     }
 
-    public function view(){
+    public function view()
+    {
         $suspects = suspect::all();
         return view('officers\view_suspects')->with('suspects',$suspects);
     }

@@ -20,8 +20,8 @@
 }
 </style>
 <body>
-
-<header class="site-navbar" role="banner">
+<div class ="container-fluid">
+    <header class="site-navbar" role="banner">
         <div class="container">
             <div class="row align-items-center"> 
                 <div class="col-11 col-xl-2">
@@ -56,48 +56,58 @@
         </div>
     </header>
 
-    <!--<form class="d-flex search" method="GET" action="" role="search">
-        @csrf
-        <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-warning" type="submit">Search</button>
-    </form>-->
+        <form class="d-flex search" method="GET" action="{{ url('/search')}}" role="search">
+            @csrf
+            <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-warning" type="submit">Search</button>
+        </form>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-3">
-                   <hr>
-                   <table class="table table-dark table-striped table-hover">
-                       <thead>
-                           <tr>
-                               <th>Officer Number</th>
-                               <th>First Name</th>
-                               <th>Last Name</th>
-                               <th>Email Address</th>
-                               <th>Gender</th>
-                               <th colspan="2">Actions</th>
-                           </tr>
-                       </thead>
-                       <tbody>
-                           @foreach($officers as $officer)
-                           <tr>
-                               <td>{{ $officer->o_number}}</td>
-                               <td>{{ $officer->first_name}}</td>
-                               <td>{{ $officer->last_name}}</td>
-                               <td>{{ $officer->email}}</td>
-                               <td>{{ $officer->gender}}</td>                              
-                               <td>
-                                   <a href="" class="btn btn-outline-warning">Edit</a>
-                               </td>
-                               <td>
-                                   <a href="" class="btn btn-outline-danger">Delete</a>
-                               </td>
-                           </tr>
-                           @endforeach
-                       </tbody>
-                   </table>     
+        
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-3">
+                    <hr>
+                    <table class="table table-dark table-striped table-hover">
+                        <thead>
+                            <tr>
+                                
+                                <th>Officer Number</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email Address</th>
+                                <th>Gender</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($officers as $officer)
+                            <tr>
+                                <td>{{ $officer->o_number}}</td>
+                                <td>{{ $officer->first_name}}</td>
+                                <td>{{ $officer->last_name}}</td>
+                                <td>{{ $officer->email}}</td>
+                                <td>{{ $officer->gender}}</td>                              
+                                <td>
+                                    <!--take to update_officer and call function edit-->
+                                    <a href="{{route('edit',$officer->id)}}"  class="btn btn-outline-warning">Edit </a>
+                                </td>
+                                <td>
+
+                                    <!--Return id and delete using that link-->
+                                    <a href="{{route('delete',$officer->id)}}" class ="btn btn-outline-danger">Delete </a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>     
+                </div>
             </div>
+                   
         </div>
-    </div>
+    </div> 
+  
+</div>
 </body>
     
 </html>
