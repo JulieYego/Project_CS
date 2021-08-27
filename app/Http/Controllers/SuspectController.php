@@ -8,6 +8,7 @@ use App\Models\suspect;
 use Carbon\Carbon;
 use App\DataTables\SuspectsDataTable;
 use DataTables;
+
 class SuspectController extends Controller
 {
     public function index(){

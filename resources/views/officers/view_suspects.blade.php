@@ -21,12 +21,7 @@
 }
 </style>
 <body>
-
-<<<<<<< HEAD
     <header class="site-navbar" role="banner">
-=======
-<header class="site-navbar" role="banner">
->>>>>>> 106715e40abb7e237a6e8a6aa3554998b44d5d20
         <div class="container">
             <div class="row align-items-center"> 
                 <div class="col-11 col-xl-2">
@@ -73,12 +68,13 @@
                                <th>Last Name</th>
                                <th>ID Number</th>
                                <th>Gender</th>
-                               <th scope="col">Arresting Officer</th>
+                               <th>Arresting Officer</th>
                                <th>Reason of Arrest</th>
                                <th>Place of Arrest</th>
                                <th>Time of Booking</th>
                                <th>To be presented to court before</th>
                                <th>Status</th>
+                               <th>Time Presented</th>
                                <th>Update</th>
                            </tr>
                        </thead>
@@ -96,6 +92,7 @@
                                <td>{{ \Carbon\Carbon::parse($suspect->created_at)->toDayDateTimeString() }}</td>
                                <td>{{ \Carbon\Carbon::parse($suspect->present)->toDayDateTimeString() }}</td>
                                <td>{{ $suspect->status}}</td>
+                               <td>Time</td>
                                <td>
                                    <a class="btn btn-outline-warning" href="#" data-toggle="modal" data-target="#ModalEdit">{{ __('Edit') }}</a>
                                </td>                               

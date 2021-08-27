@@ -55,13 +55,6 @@
             </div>
         </div>
     </header>
-
-        <form class="d-flex search" method="GET" action="{{ url('/search')}}" role="search">
-            @csrf
-            <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-warning" type="submit">Search</button>
-        </form>
-
         
     <div class="row">
         <div class="container">
@@ -102,11 +95,9 @@
                         </tbody>
                     </table>     
                 </div>
-            </div>
-                   
+            </div>               
         </div>
     </div> 
-  
 </div>
 </body>
     
