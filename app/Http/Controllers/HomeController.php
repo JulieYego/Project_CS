@@ -44,6 +44,7 @@ class HomeController extends Controller
     public function court_clerk()
     {
         return view('court_clerk.landing_page');
+    }
     public function sus()
     {
         return view('officers.suspects');
