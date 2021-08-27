@@ -52,8 +52,7 @@ class LoginController extends Controller
                 route('court_clerk_landing_page')
             );
         }
-    }
-    
+    }    
     //protected $redirectTo = RouteServiceProvider::HOME;
     
     /**
