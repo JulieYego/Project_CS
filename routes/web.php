@@ -20,13 +20,17 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/registrar_landing_page', [App\Http\Controllers\Registrar\LandingController::class, 'index'])->name('landing_page');
+//Route::get('/court_clerk_landing_page', [App\Http\Controllers\Court_clerk\LandingController::class, 'index'])->name('court_clerk');
 //Route::get('/ocs_landing_page', [App\Http\Controllers\Ocs\LandingController::class, 'index'])->name('ocs_landing_page');
 //Route::get('/ocs', [App\Http\Controllers\Ocs\LandingController::class, 'new'])->name('ocs');
-
-
 //Route::get('/test', [App\Http\Controllers\HomeController::class, 'index'])->name('test');
+
+Route::get('/suspects', [App\Http\Controllers\SuspectController::class, 'view_suspects'])->name('suspects');
+Route::get('/edit_suspect', [App\Http\Controllers\SuspectController::class, 'edit'])->name('v_suspect');
+
 //Route::get('/officer_landing_page', [App\Http\Controllers\Officer\LandingController::class, 'index'])->name('officer_landing_page');
-Route::get('/officer_landing_page', [App\Http\Controllers\Officer\LandingController::class, 'index'])->name('book');
+//Route::get('/suspects', [App\Http\Controllers\Officer\LandingController::class, 'index'])->name('book');
 //Route::post('insert', [App\Http\Controllers\DetainedController::class, 'insert'])->name('insert');
 Route::get('/search', [App\Http\Controllers\Ocs\LandingController::class, 'search'])->name('web.search');
 
@@ -57,6 +61,19 @@ Route::group(['middleware' => ['auth', 'ocs'], 'prefix' => 'ocs'], function () {
     Route::post('create_o', [App\Http\Controllers\Ocs\LandingController::class, 'create_o'])->name('create_o');
   Route::delete('/delete/{id}',[App\Http\Controllers\Ocs\LandingController::class, 'destroy'])->name('destroy');
 });
+
+// registrar protected routes
+Route::group(['middleware' => ['auth', 'registrar'], 'prefix' => 'registrar'], function () {
+    Route::get('/registrar_landing_page', [App\Http\Controllers\Registrar\LandingController::class, 'index'])->name('registrar_landing_page');
+    
+});
+
+// court clerk protected routes
+Route::group(['middleware' => ['auth', 'court_clerk'], 'prefix' => 'court_clerk'], function () {
+    Route::get('/court_clerk_landing_page', [App\Http\Controllers\Court_clerk\LandingController::class, 'index'])->name('court_clerk_landing_page');
+    
+});
+
 
 
 

@@ -60,4 +60,12 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isOcs() {
         return $this->role_id == '2';
     }
+
+    public function isRegistrar() {
+        return $this->role_id == '3';
+    }
+
+    public function isCourtClerk() {
+        return $this->role_id == '4';
+    }
 }
