@@ -29,4 +29,20 @@ class HomeController extends Controller
         //return view('officers.officer_landing_page');
         //return view('test');
     }
+
+    public function registrar()
+    {
+        return view('registrar.landing_page');
+        //return view('officers.edit_suspect');
+        //return view('officers.officer_landing_page');
+        //return view('test');
+    }
+    
+    public function court_clerk()
+    {
+        return view('court_clerk.landing_page');
+        //return view('officers.edit_suspect');
+        //return view('officers.officer_landing_page');
+        //return view('test');
+    }
 }

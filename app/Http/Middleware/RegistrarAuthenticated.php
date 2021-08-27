@@ -2,12 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App;
 use Auth;
 use Closure;
 use Illuminate\Http\Request;
 
-class OfficerAuthenticated
+class RegistrarAuthenticated
 {
     /**
      * Handle an incoming request.
@@ -20,27 +19,29 @@ class OfficerAuthenticated
     {
         if(Auth::check())
         {
-          if(Auth::user()->isOcs())
-          {
-            return route('ocs_landing_page');
 
-          }  
-          else if(Auth::user()->isRegistrar())
-          {
-            return redirect(route('registrar.registrar_landing_page'));
-          }
-
-          else if(Auth::user()->isCourtClerk())
+          if(Auth::user()->isCourtClerk())
           {
             return redirect(route('court_clerk.court_clerk_landing_page'));
           }
+
+          else if(Auth::user()->isOcs())
+          {
+            return route('ocs_landing_page');
+
+          }
           else if(Auth::user()->isOfficer())
           {
-            return $next($request);
-          }   
-        }
-        abort(404);//for other user
+            return redirect(route('officer.officer_landing_page'));
+          }
 
-        
+          else if(Auth::user()->isRegistrar())
+          {
+            return $next($request);
+          }
+
+        }
+        abort(404);//for other user 
+
     }
 }

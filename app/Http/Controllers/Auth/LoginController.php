@@ -41,6 +41,16 @@ class LoginController extends Controller
             return redirect(
                 route('ocs_landing_page')
             ); 
+        // to registrar dashboard
+        }else if($user->isRegistrar()) {
+            return redirect(
+                route('registrar_landing_page')
+            ); 
+        // to court clerk dashboard
+        }else if($user->isCourtClerk()) {
+            return redirect(
+                route('court_clerk_landing_page')
+            );
         }
     }
     
