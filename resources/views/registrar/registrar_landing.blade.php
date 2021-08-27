@@ -17,7 +17,7 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     
-    <title>Ocs Landing Page</title>
+    <title>Registrar Landing Page</title>
 </head>
 
 <style>
@@ -31,6 +31,7 @@
 </style>
 
 <body>
+    
     <header class="site-navbar" role="banner">
         <div class="container">
             <div class="row align-items-center"> 
@@ -41,9 +42,9 @@
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu js-clone-nav ml-auto d-none d-lg-block justify-content-end">
                             <li><a href="{{ route('ocs_landing_page') }}"><span>Home</span></a></li>
-                            <li><a href="{{ route('create_officer') }}"><span>Add Officer</span></a></li>
-                            <li><a href="{{ route('view_officer') }}"><span>View Officers</span></a></li>
-                            <li><a href="#"><span>View my Profile</span></a></li>
+                            <li><a href="{{ route('create_officer') }}"><span>View Cases</span></a></li>
+                            <li><a href="{{ route('view_officer') }}"><span>View Suspects</span></a></li>
+                            <li><a href="#"><span>IT Help Desk</span></a></li>
                             <li class="active">
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -72,7 +73,7 @@
                 <div class="m-4 m-lg-5">
                     <h2 class="display-5 fw-bold">The National Government Of Kenya</h2>
                     <img src="/images/logo.png" alt="Kenyan Logo">
-                    <p class="fs-4">The National Police Force in conjuction with The Judiciary</p>
+                    <p class="fs-4">The Judiciary In Conjunction with the National Police</p>
                 </div>
             </div>
         </div>
@@ -85,8 +86,8 @@
                     <div class="card bg-light border-0 h-100">
                         <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-bootstrap"></i></div>
-                                <h2 class="fs-4 fw-bold">Add new Officer</h2>
-                                <a class="btn btn-primary btn-lg" href="{{ route('create_officer') }}">Add Officer </a>
+                                <h2 class="fs-4 fw-bold">Schedule Cases</h2>
+                                <a class="btn btn-primary btn-lg" href="{{ route('create_officer') }}">Schedule Case </a>
                             </div>
                         </div>
                     </div>
@@ -95,13 +96,13 @@
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
-                                <h2 class="fs-4 fw-bold">View Officer Records</h2>
-                                <a class="btn btn-primary btn-lg" href="view_officer">View Officers</a>
+                                <h2 class="fs-4 fw-bold">View Case Records</h2>
+                                <a class="btn btn-primary btn-lg" href="view_officer">View Cases</a>
                             </div>
                         </div>
                     </div>   
                     
-                   <!-- <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
@@ -109,7 +110,7 @@
                                 <a class="btn btn-primary btn-lg" href="officer/view_suspect">View Suspects</a>
                             </div>
                         </div>
-                    </div> -->
+                    </div> 
 
                     <!--<div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
