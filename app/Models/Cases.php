@@ -20,7 +20,11 @@ class Cases extends Model
         'photo',
         'case_description',
         'case_notes',
+        'date',
+        'plea',
     ];
+
+    protected $dates = ['date','time'];
 }
 
 

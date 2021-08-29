@@ -29,40 +29,67 @@ class LandingController extends Controller
 
     public function add(Request $request)
     {
+        //return $request->input();
         $Cases = new Cases;
         $request->validate([
             'suspect_name'=>'required',
             'case_judge'=>'required',
             'courtroom'=>'required',
             'time'=>'required',
-            'activity'=>'required',
+            'activity'=>'nullable|required',
             'outcome'=>'required',
             'type'=>'required',
             'photo'=>'nullable|required',
             'case_description'=>'nullable|required',
             'case_notes'=>'nullable|required',
+            'date'=>'required',
+            'plea'=>'required',
         ]);
-        $Cases->suspect_name = $request->input('suspect_name');
-        $Cases->case_judge = $request->input('case_judge');
-        $Cases->courtroom = $request->input('courtroom');
-        $Cases->time = $request->input('time');
-        $Cases->activity = $request->input('activity');
-        $Cases->outcome = $request->input('outcome');
-        $Cases->type = $request->input('type');
-        if($request->hasfile('photo')){
-            $file      = $request->file('photo');
-            $extention = $file->getClientOriginalExtension();
-            $filename  = time(). '.' . $extention;
-            $file->move('uploads/suspect/',$filename);
-            $Cases->photo = $filename;
+
+        $query = DB::table('cases')->insert([
+            'suspect_name' => $request->input('suspect_name'),
+            'case_judge'   => $request->input('case_judge'),
+            'courtroom'   => $request->input('courtroom'),
+            'time'   => $request->input('time'),
+            'type'   => $request->input('type'),
+            'case_description'   => $request->input('case_description'),
+            'case_notes'   => $request->input('case_notes'),
+            'date'   => $request->input('date'),
+            'plea'   => $request->input('plea'),
+        ]);
+
+        if($query){
+            echo 'yes';
         }else{
-            return $request;
-            $Cases->photo = '';
-        }        
+            echo 'no';
+        }
+
+        /*$Cases->suspect_name     = $request->input('suspect_name');
+        $Cases->case_judge       = $request->input('case_judge');
+        $Cases->courtroom        = $request->input('courtroom');
+        $Cases->time             = $request->input('time');
+        $Cases->type             = $request->input('type');
         $Cases->case_description = $request->input('case_description');
-        $Cases->case_notes = $request->input('case_notes');
+        $Cases->case_notes       = $request->input('case_notes');
+        $Cases->date             = $request->input('date');
+        $Cases->plea             = $request->input('outcome');        
         $Cases->save();
-        return redirect()->back()->with('status','Record Added Successfully');
+
+        $plea = $request->input('outcome');
+        
+        if ($plea == "Guilty"){
+            return View::make('registrar\registrar_landing_page');
+
+        }else{
+            echo 'venom';
+        }
+        return redirect()->back()->with('status','Record Added Successfully');*/
+    }
+
+    public function view()
+    {
+        $Cases = Cases::all();
+        return view('registrar\view_cases')->with('cases',$Cases);
     }
 }
 

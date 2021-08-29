@@ -43,8 +43,9 @@ Route::group(['middleware' => ['auth', 'officer'], 'prefix' => 'officer'], funct
     Route::post('insert', [App\Http\Controllers\SuspectController::class, 'insert'])->name('insert');
     Route::get('/view_suspect', [App\Http\Controllers\SuspectController::class, 'view'])->name('view_suspect');
     Route::get('/view_profile', [App\Http\Controllers\Officer\LandingController::class, 'profile'])->name('view_profile');
-    Route::get('/search', [App\Http\Controllers\Officer\LandingController::class, 'search'])->name('search');
     Route::get('edit_suspect/{id}',[App\Http\Controllers\SuspectController::class, 'edit_suspect'])->name('edit_suspect');
+    Route::post('edit_suspect',[App\Http\Controllers\SuspectController::class, 'update_suspect'])->name('update_suspect');
+
 });
 
 // ocs protected routes
@@ -60,9 +61,9 @@ Route::group(['middleware' => ['auth', 'ocs'], 'prefix' => 'ocs'], function () {
     Route::get('/edit/{id}', [App\Http\Controllers\Ocs\LandingController::class, 'edit'])->name('edit');
     //update and send to page
     Route::patch('/update/{id}', [App\Http\Controllers\Ocs\LandingController::class, 'update'])->name('update');
-
     Route::post('create_o', [App\Http\Controllers\Ocs\LandingController::class, 'create_o'])->name('create_o');
-  Route::delete('/delete/{id}',[App\Http\Controllers\Ocs\LandingController::class, 'destroy'])->name('destroy');
+    Route::delete('/delete/{id}',[App\Http\Controllers\Ocs\LandingController::class, 'destroy'])->name('destroy');
+    
 });
 
 // registrar protected routes
@@ -70,6 +71,8 @@ Route::group(['middleware' => ['auth', 'registrar'], 'prefix' => 'registrar'], f
     Route::get('/registrar_landing_page', [App\Http\Controllers\Registrar\LandingController::class, 'index'])->name('registrar_landing_page');
     Route::get('/create_case', [App\Http\Controllers\Registrar\LandingController::class, 'create'])->name('create_case');
     Route::post('/add', [App\Http\Controllers\Registrar\LandingController::class, 'add']);
+    Route::get('/view_cases', [App\Http\Controllers\Registrar\LandingController::class, 'view'])->name('view_cases');
+
 });
 
 // court clerk protected routes

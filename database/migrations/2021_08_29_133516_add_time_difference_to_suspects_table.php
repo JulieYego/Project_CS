@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTimePresentedToSuspectsTable extends Migration
+class AddTimeDifferenceToSuspectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddTimePresentedToSuspectsTable extends Migration
     public function up()
     {
         Schema::table('suspects', function (Blueprint $table) {
-            //$table->string()
+            $table->string('time_difference');
         });
     }
 
@@ -26,7 +26,7 @@ class AddTimePresentedToSuspectsTable extends Migration
     public function down()
     {
         Schema::table('suspects', function (Blueprint $table) {
-            //
+            dropColumn('time_difference');
         });
     }
 }

@@ -171,5 +171,26 @@ class SuspectController extends Controller
         return view('officers\edit_suspect',['data'=>$data]);
     }
 
+    public function update_suspect(Request $req){
+        $date = $req->input('date');
+        $time = $req->input('time');
+        $time_booked = $req->input('created_at');
+        $combinedDT = date('Y-m-d H:i:s', strtotime("$date $time"));
+        $startTime = Carbon::parse($time_booked);
+        $endTime = Carbon::parse($date);
+        $totalDuration = $endTime->diffInHours($startTime);
+        echo $totalDuration;
+        //$totalDuration = $endTime->diffForHumans($startTime);
+
+        //return $req->input();
+        $data = suspect::find($req->id);
+        $data->status = $req->input('status');
+        $data->time_presented = $combinedDT;
+        $data->time_difference = $totalDuration;
+        $data->save();
+        return redirect('officer\view_suspect');
+    }
 }
+
+
 

@@ -20,6 +20,8 @@ class suspect extends Model
         'photo',
         'present',
         'status',
+        'time_presented',
+        'time_difference',
     ];
     protected $dates = ['present'];
 }

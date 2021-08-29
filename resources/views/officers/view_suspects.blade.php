@@ -75,6 +75,7 @@
                                <th>To be presented to court before</th>
                                <th>Status</th>
                                <th>Time Presented</th>
+                               <th>Time Difference</th>
                                <th>Update</th>
                            </tr>
                        </thead>
@@ -92,7 +93,8 @@
                                <td>{{ \Carbon\Carbon::parse($suspect->created_at)->toDayDateTimeString() }}</td>
                                <td>{{ \Carbon\Carbon::parse($suspect->present)->toDayDateTimeString() }}</td>
                                <td>{{ $suspect->status}}</td>
-                               <td>Time</td>
+                               <td>{{ \Carbon\Carbon::parse($suspect->time_presented)->toDayDateTimeString() }}</td>
+                               <td>{{ $suspect->time_difference }} hours</td>
                                <td>
                                    <a href={{"edit_suspect/".$suspect['id']}} class="btn btn-outline-warning">{{ __('Edit') }}</a>
                                </td>                               
