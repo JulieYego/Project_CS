@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class LandingController extends Controller
 {
@@ -26,9 +26,9 @@ class LandingController extends Controller
         return view('officers.profile')->with('officers',$officers);
     }
 
-    public function search() {
+    /*public function search() {
         $search_text = $_GET('query');
         $search = user::where('first_name','LIKE','%'.$search_text.'%')->get();
         return view('officers.view_suspects' ,compact('search'));
-    }
+    }*/
 }
