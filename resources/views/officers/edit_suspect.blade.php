@@ -1,6 +1,16 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('bootstrap-5.0.2/css/bootstrap.css') }}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="" rel="stylesheet" />
+    <link href="/css/form.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
 
-@section('content')
 <style>
     button{
         width: 100px;
@@ -28,37 +38,27 @@
     img {
     height: 80px;
     }
-
-    .modal-content{
-        background-color: rgba(0,0,0,1);
-    }
-
-    .modal-header{
-        color:#FFC312;
+    .input{
+        color : black;
     }
 </style>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Update
-</button>
 
-<!-- Edit modal  -->
-<div class="modal fade mod" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Suspect</h5>
-      </div>
-      <div class="modal-body">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            
+            <div class="card" style="width: 35rem; height:70rem">
+                <div class="card-header">
+                    <h3>{{ __('Update Suspect') }}</h3>
+                </div>
+
+                <div class="card-body">
                     <form action="" method="post">
-                    @csrf
+                        @csrf
                         <div class="form-group">
                             <div class="form-wrapper">
                                 <label for="first_name" class="">{{ __('First Name') }}</label>
-                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
+                                <input id="first_name" type="text" readonly class="input form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{$data['first_name']}}" required autocomplete="first_name" autofocus>
                                 @error('first_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -68,7 +68,7 @@
 
                             <div class="form-wrapper">
                                 <label for="last_name" class="">{{ __('Last Name') }}</label>
-                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+                                <input id="last_name" type="text" readonly class="input form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{$data['last_name']}}" required autocomplete="last_name" autofocus>
                                 @error('last_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -79,7 +79,7 @@
 
                         <div class="form-wrapper">
                             <label for="officer">{{ __('Arresting Officer') }}</label>
-                            <input id="officer" type="text" style="width: 450px;" class="form-control @error('officer') is-invalid @enderror" name="officer" value="{{ old('officer') }}" required autocomplete="officer" autofocus>
+                            <input id="officer" type="text" readonly class="input form-control @error('officer') is-invalid @enderror" name="officer" value="{{$data['officer']}}" required autocomplete="officer" autofocus>
                                 @error('officer')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -89,7 +89,7 @@
 
                         <div class="form-wrapper">
                             <label for="crime">{{ __('Reason of Arrest') }}</label>
-                            <input id="crime" type="text" style="width: 450px;" class="form-control @error('crime') is-invalid @enderror" name="crime" value="{{ old('crime') }}" required autocomplete="crime" autofocus>
+                            <input id="crime" type="text" readonly class="input form-control @error('crime') is-invalid @enderror" name="crime" value="{{$data['crime']}}" required autocomplete="crime" autofocus>
                                 @error('crime')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -98,9 +98,20 @@
                         </div>
 
                         <div class="form-wrapper">
-                            <label for="place">{{ __('Place of Arrest') }}</label>
-                            <input id="place" type="text" style="width: 450px;" class="form-control @error('place') is-invalid @enderror" name="place" value="{{ old('place') }}" required autocomplete="place" autofocus>
+                            <label for="created_at">{{ __('Time of Boooking') }}</label>
+                            <input id="created_at" type="text" readonly class="input form-control @error('created_at') is-invalid @enderror" name="created_at" value="{{$data['created_at']->toDayDateTimeString()}}" required autocomplete="created_at" autofocus>
+
                                 @error('place')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+
+                        <div class="form-wrapper">
+                            <label for="present">{{ __('To be presented before') }}</label>
+                            <input id="present" type="text" readonly class="input form-control @error('present') is-invalid @enderror" name="present" value="{{$data['present']->toDayDateTimeString()}}" required autocomplete="present" autofocus>
+                                @error('present')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -124,160 +135,50 @@
                             </div>
 
                             <div class="form-wrapper">
-                                <label for="last_name" class="">{{ __('Time presented') }}</label>
-                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
-                                @error('last_name')
+                                <label for="time" class="">{{ __('Time presented') }}</label>
+                                <input id="time" type="text" class="form-control @error('time') is-invalid @enderror" name="time" value="{{ old('time') }}" required autocomplete="time" autofocus>
+                                @error('time')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div> 
-                    </form>
 
-                </div>
-            </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            
-            <div class="card" style="width: 32rem; height:53rem">
-                <div class="card-header">
-                    <h3>{{ __('Book New Suspect') }}</h3>
-                </div>
-
-                <div class="card-body">
-                    <form method="POST" action="edit" enctype="multipart/form-data">
-                        @csrf
                         <div class="form-group">
-                            <div class="form-wrapper">
-                                <label for="first_name" class="">{{ __('First Name') }}</label>
-                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
-                                @error('first_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                            <div class='input-group date' id='datetimepicker'>
+                                <input id="datetimepicker" type="text" >
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-wrapper">
-                                <label for="last_name" class="">{{ __('Last Name') }}</label>
-                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
-                                @error('last_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>  
-
-                        <div class="form-wrapper">
-                            <label for="IDnumber">{{ __('ID Number') }}</label>
-                            <input id="IDnumber" type="text" style="width: 450px;" class="form-control @error('IDnumber') is-invalid @enderror" name="IDnumber" value="{{ old('IDnumber') }}" required autocomplete="IDnumber" autofocus>
-                                @error('IDnumber')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-
-                        <div class="form-wrapper">
-                            <label for="gender" class="">{{ __('Gender') }}</label>
-                                <select name="gender" style="width: 450px;" id="gender" class="form-control" required>
-                                    <option value="Select Gender">Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                                @error('gender')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-
-                        <div class="form-wrapper">
-                            <label for="officer">{{ __('Arresting Officer') }}</label>
-                            <input id="officer" type="text" style="width: 450px;" class="form-control @error('officer') is-invalid @enderror" name="officer" value="{{ old('officer') }}" required autocomplete="officer" autofocus>
-                                @error('officer')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-
-                        <div class="form-wrapper">
-                            <label for="crime">{{ __('Reason of Arrest') }}</label>
-                            <input id="crime" type="text" style="width: 450px;" class="form-control @error('crime') is-invalid @enderror" name="crime" value="{{ old('crime') }}" required autocomplete="crime" autofocus>
-                                @error('crime')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-
-                        <div class="form-wrapper">
-                            <label for="place">{{ __('Place of Arrest') }}</label>
-                            <input id="place" type="text" style="width: 450px;" class="form-control @error('place') is-invalid @enderror" name="place" value="{{ old('place') }}" required autocomplete="place" autofocus>
-                                @error('place')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="photo" class="form-label">Photo</label>
-                            <input class="form-control" type="file" name="photo" id="photo">
-                        </div>
-
-                        <div class="form-wrapper" style="margin-left: 20px;">
-                            <label for="gender" class="">{{ __('Status') }}</label>
-                                <select name="gender" style="width: 450px;" id="gender" class="form-control" required>
-                                    <option value="Select Gender">Select Status</option>
-                                    <option value="">Not presented</option>
-                                    <option value="">Presented</option>
-                                    <option value="">Cash bail</option>
-                                </select>
-                                @error('gender')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-                        
-                        <div class="sibs">
-                            <div class="back">
-                                <button onclick="back()">{{ __('BACK') }}</button>
-                            </div>
-                            <div class="save">
-                                <button type="submit" >
-                                    {{ __('SAVE') }}
-                                </button>    
                             </div>
                         </div>
+
+                        <button type="submit" class="btn btn-warning" >
+                            Save
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</body>
+<link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css"/ >
+<script src="/jquery.js"></script>
+<script src="/build/jquery.datetimepicker.full.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    jQuery('#datetimepicker').datetimepicker();
+</script>
+
     <script>
         function back() {
             location.href = "officer_landing_page";
         }
     </script>
+
     @if(session('status'))
         <script>
             //toastr.success("{{ session('status') }}");
@@ -286,4 +187,10 @@
             })
         </script>
     @endif
-@endsection
+</html>
+
+
+
+
+    
+

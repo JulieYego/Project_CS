@@ -48,7 +48,7 @@ class LandingController extends Controller
 
     public function create()
     {
-        return view('Ocs\create');     
+        return view('user\create');     
     }
 
     public function book()

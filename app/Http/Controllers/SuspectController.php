@@ -166,5 +166,10 @@ class SuspectController extends Controller
         return view('officers\suspects');
     }
 
+    public function edit_suspect($id) {
+        $data = suspect::find($id);
+        return view('officers\edit_suspect',['data'=>$data]);
+    }
+
 }
 

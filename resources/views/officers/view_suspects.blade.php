@@ -94,7 +94,7 @@
                                <td>{{ $suspect->status}}</td>
                                <td>Time</td>
                                <td>
-                                   <a class="btn btn-outline-warning" href="#" data-toggle="modal" data-target="#ModalEdit">{{ __('Edit') }}</a>
+                                   <a href={{"edit_suspect/".$suspect['id']}} class="btn btn-outline-warning">{{ __('Edit') }}</a>
                                </td>                               
                            </tr>
                            @endforeach
@@ -106,11 +106,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <script src="js/scripts.js"></script>
-    <script>
-        $(document).ready( function () {
-            $('#tbl_suspects').DataTable();
-        });
-    </script>
 </body>
     
 </html>

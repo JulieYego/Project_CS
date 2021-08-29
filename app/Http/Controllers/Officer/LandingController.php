@@ -32,4 +32,3 @@ class LandingController extends Controller
         return view('officers.view_suspects' ,compact('search'));
     }
 }
-

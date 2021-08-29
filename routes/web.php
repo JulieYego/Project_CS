@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +43,7 @@ Route::group(['middleware' => ['auth', 'officer'], 'prefix' => 'officer'], funct
     Route::get('/view_suspect', [App\Http\Controllers\SuspectController::class, 'view'])->name('view_suspect');
     Route::get('/view_profile', [App\Http\Controllers\Officer\LandingController::class, 'profile'])->name('view_profile');
     Route::get('/search', [App\Http\Controllers\Officer\LandingController::class, 'search'])->name('search');
+    Route::get('edit_suspect/{id}',[App\Http\Controllers\SuspectController::class, 'edit_suspect'])->name('edit_suspect');
 });
 
 // ocs protected routes
@@ -65,7 +67,8 @@ Route::group(['middleware' => ['auth', 'ocs'], 'prefix' => 'ocs'], function () {
 // registrar protected routes
 Route::group(['middleware' => ['auth', 'registrar'], 'prefix' => 'registrar'], function () {
     Route::get('/registrar_landing_page', [App\Http\Controllers\Registrar\LandingController::class, 'index'])->name('registrar_landing_page');
-    
+    Route::get('/create_case', [App\Http\Controllers\Registrar\LandingController::class, 'create'])->name('create_case');
+    Route::post('/add', [App\Http\Controllers\Registrar\LandingController::class, 'add']);
 });
 
 // court clerk protected routes

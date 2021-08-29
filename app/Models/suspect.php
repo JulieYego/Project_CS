@@ -21,4 +21,5 @@ class suspect extends Model
         'present',
         'status',
     ];
+    protected $dates = ['present'];
 }
