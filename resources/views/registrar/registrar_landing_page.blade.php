@@ -40,9 +40,10 @@
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu js-clone-nav ml-auto d-none d-lg-block justify-content-end">
-                            <li><a href="{{ route('ocs_landing_page') }}"><span>Home</span></a></li>
-                            <li><a href="{{ route('create_officer') }}"><span>View Cases</span></a></li>
-                            <li><a href="{{ route('view_officer') }}"><span>View Suspect Records</span></a></li>
+                            <li><a href="{{ route('registrar_landing_page') }}"><span>Home</span></a></li>
+                            <li><a href="{{ route('schedule_case') }}"><span>Schedule Case</span></a></li>
+                            <li><a href="{{ route('view_cases') }}"><span>View Cases</span></a></li>
+                            <li><a href="{{ route('track_case') }}"><span>Track Cases</span></a></li>
                             <li><a href="#"><span>View my Profile</span></a></li>
                             <li class="active">
                                 <a href="{{ route('logout') }}"
@@ -95,18 +96,18 @@
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
-                                <h2 class="fs-4 fw-bold">View Scheduled Cases</h2>
-                                <a class="btn btn-primary btn-lg" href="#">View Cases </a>
+                                <h2 class="fs-4 fw-bold">Schedule a case</h2>
+                                <a class="btn btn-primary btn-lg" href="{{ route('schedule_case') }}">Schedule Case</a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
-                                <h2 class="fs-4 fw-bold">Update a Case</h2>
-                                <a class="btn btn-primary btn-lg" href="#">Update Case </a>
+                                <h2 class="fs-4 fw-bold">View Scheduled Cases</h2>
+                                <a class="btn btn-primary btn-lg" href="{{ route('view_cases') }}">View Cases </a>
                             </div>
                         </div>
                     </div>
@@ -116,80 +117,16 @@
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
                                 <h2 class="fs-4 fw-bold">Track a Case</h2>
-                                <a class="btn btn-primary btn-lg" href="view_officer">Track Case </a>
+                                <a class="btn btn-primary btn-lg" href="{{ route('track_case') }}">Track Case </a>
                             </div>
                         </div>
                     </div>
-                    
-                   <!--<div class="col-lg-6 col-xxl-4 mb-5">
-                        <div class="card bg-light border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
-                                <h2 class="fs-4 fw-bold">Analytical review</h2>
-                                <a class="btn btn-primary btn-lg" href="officer/view_suspect">Analytical Review</a>
-                            </div>
-                        </div>
-                    </div>-->
-
-                    <!--<div class="col-lg-6 col-xxl-4 mb-5">
-                        <div class="card bg-light border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
-                                <h2 class="fs-4 fw-bold">Book a Suspect</h2>
-                                <a class="btn btn-primary btn-lg" href="view_officer">Book Suspect</a>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!--<footer class="py-5 bg-dark">
-        <div class="container"><p class="m-0 text-center text-white">Copyright &copy;</p></div>
-    </footer>-->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
 </body>
 </html>
-
-<!--
-<header class="header-area overlay">
-        <nav class="navbar navbar-expand-md navbar-dark">
-		    <div class="container">
-                <img src="/images/logo.png" class="navbar-brand" alt="Kenyan Logo">	
-                <a class="navbar-brand" href="#">Welcome Ocs {{ Auth::user()->o_number }}</a>
-			        <div id="main-nav" class="collapse navbar-collapse">
-				        <ul class="navbar-nav ml-auto">
-					        <li>
-                                <a href="{{ route('officer_landing_page') }}" class="nav-item nav-link active">Home</a>
-                            </li>
-					        <li>
-                                <a href="{{ route('view_suspect') }}" class="nav-item nav-link">View suspects</a>
-                            </li>
-					        <li>
-						        <a href="{{ route('book_suspect') }}" class="nav-item nav-link">Book suspects</a>
-					        </li>
-					        <li>
-                                <a href="{{ route('view_profile') }}" class="nav-item nav-link ">View profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
-				        </ul>
-			        </div>
-		    </div>
-	    </nav>
-    </header>
-
-
-
--->

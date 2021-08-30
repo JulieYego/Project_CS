@@ -22,9 +22,12 @@ class Cases extends Model
         'case_notes',
         'date',
         'plea',
+        'hearing_time',
+        'hearing_date',
+        'hearing_courtroom',
     ];
 
-    protected $dates = ['date','time'];
+    protected $dates = ['date','time','hearing_time','hearing_date'];
 }
 
 

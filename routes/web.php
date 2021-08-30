@@ -70,8 +70,12 @@ Route::group(['middleware' => ['auth', 'ocs'], 'prefix' => 'ocs'], function () {
 Route::group(['middleware' => ['auth', 'registrar'], 'prefix' => 'registrar'], function () {
     Route::get('/registrar_landing_page', [App\Http\Controllers\Registrar\LandingController::class, 'index'])->name('registrar_landing_page');
     Route::get('/create_case', [App\Http\Controllers\Registrar\LandingController::class, 'create'])->name('create_case');
-    Route::post('/add', [App\Http\Controllers\Registrar\LandingController::class, 'add']);
+    Route::post('add', [App\Http\Controllers\Registrar\LandingController::class, 'add'])->name('add');
     Route::get('/view_cases', [App\Http\Controllers\Registrar\LandingController::class, 'view'])->name('view_cases');
+    Route::get('/schedule_case', [App\Http\Controllers\Registrar\LandingController::class, 'schedule'])->name('schedule_case');
+    Route::post('schedule', [App\Http\Controllers\Registrar\LandingController::class, 'schedule_case'])->name('schedule');
+    Route::get('/track_case', [App\Http\Controllers\Registrar\LandingController::class, 'track'])->name('track_case');
+    Route::get('cases', [App\Http\Controllers\Registrar\LandingController::class, 'getCases'])->name('getCases');
 
 });
 

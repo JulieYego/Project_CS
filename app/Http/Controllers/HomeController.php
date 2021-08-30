@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\suspect;
 use Carbon\Carbon;
+use DataTables;
 
 class HomeController extends Controller
 {
@@ -27,8 +28,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
-        //return view('officers.edit_suspect');
+        //return view('home');
+        return view('registrar.view_case');
         //return view('officers.officer_landing_page');
         //return view('test');
     }

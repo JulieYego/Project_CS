@@ -52,9 +52,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card" style="width: 32rem; height:61rem">
+            <div class="card" style="width: 32rem; height:30rem">
                 <div class="card-header">
-                    <h3>{{ __('New Case') }}</h3>
+                    <h3>{{ __('Schedule Case') }}</h3>
                 </div>
 
                 @if(Session::get('success'))
@@ -70,22 +70,12 @@
                 @endif    
 
                 <div class="card-body">
-                    <form action="add"  method="POST" enctype="multipart/form-data">
+                    <form action="schedule"  method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-wrapper">
-                            <label for="suspect_name" class="">{{ __('Suspect Name') }}</label>
-                            <input id="suspect_name" type="text" class="form-control @error('suspect_name') is-invalid @enderror" name="suspect_name" value="{{ old('suspect_name') }}" required autocomplete="suspect_name" autofocus>
-                            @error('suspect_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div> 
-
-                        <div class="form-wrapper">
-                            <label for="case_judge" class="">{{ __('Case Judge') }}</label>
-                            <input id="case_judge" type="text" class="form-control @error('case_judge') is-invalid @enderror" name="case_judge" value="{{ old('case_judge') }}" required autocomplete="case_judge" autofocus>
-                            @error('case_judge')
+                            <label for="case_number" class="">{{ __('Case Number') }}</label>
+                            <input id="case_number" type="text" class="form-control @error('case_number') is-invalid @enderror" name="case_number" value="{{ old('case_number') }}" required autocomplete="case_number" autofocus>
+                            @error('case_number')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -104,7 +94,7 @@
 
                         <div class="form-group">
                             <div class="form-wrapper">
-                                <label for="date" class="">{{ __('Case date') }}</label>
+                                <label for="date" class="">{{ __('Hearing date') }}</label>
                                 <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="date" autofocus>
                                 @error('date')
                                     <span class="invalid-feedback" role="alert">
@@ -114,7 +104,7 @@
                             </div>
 
                             <div class="form-wrapper">
-                                <label for="time" class="">{{ __('Case time') }}</label>
+                                <label for="time" class="">{{ __('Hearing time') }}</label>
                                 <input id="time" type="time" class="form-control @error('time') is-invalid @enderror" name="time" value="{{ old('time') }}" required autocomplete="time" autofocus>
                                 @error('time')
                                     <span class="invalid-feedback" role="alert">
@@ -124,73 +114,12 @@
                             </div>
                         </div> 
 
-                        <div class="form-wrapper">
-                            <label for="type" class="">{{ __('Case type') }}</label>
-                                <select name="type" style="width: 450px;" id="activity" class="form-control" required>
-                                    <option value="Select Case Type">Select Case Type</option>
-                                    <option value="civil">Civil</option>
-                                    <option value="criminal">Criminal</option>
-                                    <option value="claims">Claims</option>
-                                    <option value="appeals">Appeals</option>
-                                    <option value="family">Family</option>
-                                </select>
-                                @error('activity')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-
-                        <div class="form-wrapper">
-                            <label for="case_description">{{ __('Case Description') }}</label>
-                            <textarea class="form-control"  type="text" style="width: 450px;" class="form-control @error('case_description') is-invalid @enderror" name="case_description" value="{{ old('case_description') }}" required autocomplete="case_description" autofocus></textarea>
-                                @error('case_description')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-
-                        <div class="form-wrapper">
-                            <label for="plea">{{ __('Case plea') }}</label>
-                            <select name="plea" style="width: 450px;" id="plea" class="form-control" required>
-                                    <option value="Select Case Plea">Select Case Plea</option>
-                                    <option value="Guilty">Guilty</option>
-                                    <option value="Not guilty">Not guilty</option>
-                            </select>                               
-                                @error('plea')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-
-                        <div class="form-wrapper">
-                            <label for="outcome">{{ __('Case Outcome') }}</label>
-                            <textarea class="form-control"  type="text" style="width: 450px;" class="form-control @error('outcome') is-invalid @enderror" name="outcome" value="{{ old('outcome') }}" required autocomplete="outcome" autofocus></textarea>
-                                @error('outcome')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-                                         
-                        <div class="form-wrapper">
-                            <label for="case_notes">{{ __('Case Notes') }}</label>
-                            <textarea class="form-control"  type="text" style="width: 450px;" class="form-control @error('case_notes') is-invalid @enderror" name="case_notes" value="{{ old('case_notes') }}" required autocomplete="case_notes" autofocus></textarea>
-                                @error('case_notes')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-
-                        <div class="hidden">
+                        <!--<div class="hidden">
                             <input type="hidden" id="activity" name="activity" value="Mention" style="width: 1px;" class="">
                                 @if ($errors->has('activity'))
                                     <div class="error">{{ $errors->first('activity') }}</div>
                                 @endif
-                        </div>
+                        </div>-->
 
                             <!--<div class="back">
                                 <button onclick="back()">{{ __('BACK') }}</button>
