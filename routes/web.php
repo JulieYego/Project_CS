@@ -75,7 +75,8 @@ Route::group(['middleware' => ['auth', 'registrar'], 'prefix' => 'registrar'], f
     Route::get('/schedule_case', [App\Http\Controllers\Registrar\LandingController::class, 'schedule'])->name('schedule_case');
     Route::post('schedule', [App\Http\Controllers\Registrar\LandingController::class, 'schedule_case'])->name('schedule');
     Route::get('/track_case', [App\Http\Controllers\Registrar\LandingController::class, 'track'])->name('track_case');
-    Route::get('cases', [App\Http\Controllers\Registrar\LandingController::class, 'getCases'])->name('getCases');
+    //Route::get('cases', [App\Http\Controllers\Registrar\LandingController::class, 'getCases'])->name('getCases');
+    Route::get('/cases', [App\Http\Controllers\Registrar\LandingController::class, 'getCases'])->name('getCases');
 
 });
 

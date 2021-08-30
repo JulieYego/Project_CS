@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use App\Models\Cases;
+use App\DataTables\casesDataTable;
 use DataTables;
 
 class LandingController extends Controller
@@ -61,6 +62,10 @@ class LandingController extends Controller
         return view('registrar\view_cases')->with('Cases',$Cases);
     }
 
+    public function cases(casesDataTable $dataTable){
+        return $dataTable->render('cases');
+    }
+
     public function getCases(Request $request)
     {
         if ($request->ajax()) {
@@ -68,13 +73,13 @@ class LandingController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                    $actionBtn = '<a href="#" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view();
+        return view('registrar\view_case');
     }
 
     public function schedule() {
