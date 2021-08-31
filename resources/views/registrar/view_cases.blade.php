@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.0/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap5.min.js"></script>
     <link rel="stylesheet" href="{{ asset('bootstrap-5.0.2/css/bootstrap.css') }}">
     <link href="/css/form.css" rel="stylesheet" />
     <link href="/css/styles.css" rel="stylesheet" />
@@ -61,7 +68,7 @@
          <div class="row">
             <div class="col-md-offset-3">
                    <hr>
-                   <table class="table table-dark table-striped table-hover" id="tbl_suspects">
+                   <table class="table table-dark table-striped table-hover data-table">
                        <thead>
                            <tr>
                                <th>Case Number</th>
@@ -76,37 +83,36 @@
                                <th>Case Notes</th>
                                <th>Plea Taken</th>
                                <th>Case Status</th>
-                               <th>Update</th>
                            </tr>
                        </thead>
                        <tbody>
-                           @foreach($Cases as $Case)
-                           <tr>
-                               <td>{{ $Case->id}}</td>
-                               <td>{{ $Case->suspect_name}}</td>
-                               <td>{{ $Case->courtroom}}</td>
-                               <td>{{ $Case->date}}</td>
-                               <td>{{ $Case->time}}</td>
-                               <td>{{ $Case->activity}}</td>
-                               <td>{{ $Case->outcome}}</td>
-                               <td>{{ $Case->type}}</td>
-                               <td>{{ $Case->case_description}}</td>
-                               <td>{{ $Case->case_notes}}</td>
-                               <td>{{ $Case->plea}}</td>
-                               <td>{{ $Case->case_status}}</td>
-                               <td>
-                                   <a href="#" class="btn btn-outline-warning">{{ __('Edit') }}</a>
-                               </td>                               
-                           </tr>
-                           @endforeach
                        </tbody>
                    </table>     
             </div>
          </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-    <script src="js/scripts.js"></script>
 </body>
-    
+<script type="text/javascript">
+  $(function () {
+    var table = $('.data-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{!! route('cases') !!}",
+        columns: [
+                { data: 'c_number'          , name: 'c_number' },
+                { data: 'suspect_name'      , name: 'suspect_name' },
+                { data: 'courtroom'         , name: 'courtroom' },
+                { data: 'date'              , name: 'date' },
+                { data: 'time'              , name: 'time' },
+                { data: 'activity'          , name: 'activity' },
+                { data: 'outcome'           , name: 'outcome' },
+                { data: 'type'              , name: 'type' },
+                { data: 'case_description'  , name: 'case_description' },
+                { data: 'case_notes'        , name: 'case_notes' },
+                { data: 'plea'              , name: 'plea' },
+                { data: 'case_status'       , name: 'case_status' },
+            ]
+    });
+  });
+</script>  
 </html>

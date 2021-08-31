@@ -25,6 +25,7 @@ class Cases extends Model
         'hearing_time',
         'hearing_date',
         'hearing_courtroom',
+        'c_number',
     ];
 
     protected $dates = ['date','time','hearing_time','hearing_date'];

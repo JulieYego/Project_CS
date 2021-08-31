@@ -73,6 +73,16 @@
                     <form action="add"  method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-wrapper">
+                            <label for="c_number" class="">{{ __('Case Number') }}</label>
+                            <input id="c_number" type="text" class="form-control @error('c_number') is-invalid @enderror" name="c_number" value="{{ old('c_number') }}" required autocomplete="c_number" autofocus>
+                            @error('c_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div> 
+
+                        <div class="form-wrapper">
                             <label for="suspect_name" class="">{{ __('Suspect Name') }}</label>
                             <input id="suspect_name" type="text" class="form-control @error('suspect_name') is-invalid @enderror" name="suspect_name" value="{{ old('suspect_name') }}" required autocomplete="suspect_name" autofocus>
                             @error('suspect_name')

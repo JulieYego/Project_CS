@@ -72,12 +72,13 @@ Route::group(['middleware' => ['auth', 'registrar'], 'prefix' => 'registrar'], f
     Route::get('/create_case', [App\Http\Controllers\Registrar\LandingController::class, 'create'])->name('create_case');
     Route::post('add', [App\Http\Controllers\Registrar\LandingController::class, 'add'])->name('add');
     Route::get('/view_cases', [App\Http\Controllers\Registrar\LandingController::class, 'view'])->name('view_cases');
+    Route::get('/edit_cases/{id}', [App\Http\Controllers\Registrar\LandingController::class, 'edit_cases'])->name('edit_cases');
+    Route::post('update_case', [App\Http\Controllers\Registrar\LandingController::class, 'update'])->name('update');
     Route::get('/schedule_case', [App\Http\Controllers\Registrar\LandingController::class, 'schedule'])->name('schedule_case');
     Route::post('schedule', [App\Http\Controllers\Registrar\LandingController::class, 'schedule_case'])->name('schedule');
     Route::get('/track_case', [App\Http\Controllers\Registrar\LandingController::class, 'track'])->name('track_case');
-    //Route::get('cases', [App\Http\Controllers\Registrar\LandingController::class, 'getCases'])->name('getCases');
-    Route::get('/cases', [App\Http\Controllers\Registrar\LandingController::class, 'getCases'])->name('getCases');
-
+    Route::get('cases', [App\Http\Controllers\Registrar\LandingController::class, 'cases'])->name('cases');
+    Route::get('view_scheduled', [App\Http\Controllers\Registrar\LandingController::class, 'view_scheduled'])->name('view_scheduled');
 });
 
 // court clerk protected routes

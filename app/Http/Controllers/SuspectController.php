@@ -147,7 +147,6 @@ class SuspectController extends Controller
 
                 $btn = 
                      '<a href="#" class="btn btn-outline-warning edit" id="'.$suspect->id.'"><i class="glyphicon glyphicon-edit"></i> Update</a>';
-
                 return $btn;
             })
             ->editColumn('created_at',function($suspect){
@@ -191,6 +190,5 @@ class SuspectController extends Controller
         return redirect('officer\view_suspect');
     }
 }
-
 
 

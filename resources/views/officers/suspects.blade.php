@@ -176,18 +176,18 @@
                 <table class="table table-dark table-striped table-hover data-table">
                     <thead>
                     <tr>
-                        <th width="50">No</th>
-                        <th>Photo</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>ID Number</th>
-                        <th>Gender</th>
-                        <th>Arresting Officer</th>
-                        <th>Reason of Arrest</th>
-                        <th>Place of Arrest</th>
-                        <th>Time of Booking</th>
-                        <th>To be presented to court before</th>
-                        <th>Status</th>
+                        <th>Case Number</th>
+                        <th>Suspect Name</th>
+                        <th>Courtroom</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Case Outcome</th>
+                        <th>Case Type</th>
+                        <th>Case Description</th>
+                        <th>Case Notes</th>
+                        <th>Plea Taken</th>
+                        <th>Case Status</th>
                         <th>Update</th>
                     </tr>
                     </thead>
@@ -216,7 +216,7 @@
             {data: 'gender', name: 'gender'},
             {data: 'officer', name: 'officer'},
             {data: 'crime', name: 'crime'},
-            {data: 'place', name: 'place'},
+            {data: 'place', name: 'dddd'},
             {data: 'created_at.display', name: 'created_at'},
             {data: 'present.display', name: 'present'},
             {data: 'status', name: 'status'},
@@ -224,29 +224,21 @@
         ]
     });
   });
-  
-    $(document).ready(function(){
-        var table = $('updateModal').DataTable();
-        table.on('click','edit',function(){
-            $tr = $(this).closest('tr');
-            if ($($tr).hasClass('child')){
-                $tr = $tr.prev('.parent');
-            }
-            var data = table.row($tr).data();
-            console.log(data);
-
-            $('first_name').val(data[1]);
-            $('last_name').val(data[2]);
-            $('officer').val(data[3]);
-            $('crime').val(data[4]);
-            $('place').val(data[5]);
-            $('status').val(data[6]);
-        })
-    })
-
-
-  
-  
 </script>
 </html>
-
+columns: [
+            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'id'                 , name: 'id'},
+            {data: 'suspect_name'       , name: 'suspect_name'},
+            {data: 'courtroom'          , name: 'courtroom'},
+            {data: 'date'               , name: 'date'},
+            {data: 'time'               , name: 'time'},
+            {data: 'activity'           , name: 'activity'},
+            {data: 'outcome'            , name: 'outcome'},
+            {data: 'type'               , name: 'type'},
+            {data: 'case_description'   , name: 'case_description'},
+            {data: 'case_notes'         , name: 'case_notes'},
+            {data: 'plea'               , name: 'plea'},
+            {data: 'case_status'        , name: 'status'},
+            {data: 'action'             , name: 'action', orderable: false, searchable: false},
+        ]
